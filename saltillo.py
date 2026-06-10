@@ -43,7 +43,7 @@ class Saltillo:
         sSALd3 = net.addSwitch('sSALd3', failMode='standalone')  # Floor 3
 
         # Floor 1 access switches
-        sSALl   = net.addSwitch('sSALl',   failMode='standalone')  # Lobby PoE
+        sSALl1   = net.addSwitch('sSALl1',   failMode='standalone')  # Lobby PoE
         sSALf11 = net.addSwitch('sSALf11', failMode='standalone')  # Non-PoE 48P (1)
         sSALf12 = net.addSwitch('sSALf12', failMode='standalone')  # Non-PoE 48P (2)
         sSALf13 = net.addSwitch('sSALf13', failMode='standalone')  # PoE 48P
@@ -66,7 +66,7 @@ class Saltillo:
         net.addLink(sSALc1, sSALd2)        # sSALc1-eth3  ↔ sSALd2-eth1
         net.addLink(sSALc1, sSALd3)        # sSALc1-eth4  ↔ sSALd3-eth1
 
-        net.addLink(sSALd1, sSALl)         # sSALd1-eth2  ↔ sSALl-eth1
+        net.addLink(sSALd1, sSALl1)         # sSALd1-eth2  ↔ sSALl1-eth1
         net.addLink(sSALd1, sSALf11)       # sSALd1-eth3  ↔ sSALf11-eth1
         net.addLink(sSALd1, sSALf12)       # sSALd1-eth4  ↔ sSALf12-eth1
         net.addLink(sSALd1, sSALf13)       # sSALd1-eth5  ↔ sSALf13-eth1
@@ -97,7 +97,7 @@ class Saltillo:
         hSALf2rec1 = net.addHost('hSALf2rec1', ip='10.30.50.20/27')
         hSALf3rec1 = net.addHost('hSALf3rec1', ip='10.30.50.30/27')
 
-        net.addLink(hSALlrec1,  sSALl)     # hSALlrec1-eth0  ↔ sSALl-eth2
+        net.addLink(hSALlrec1,  sSALl1)     # hSALlrec1-eth0  ↔ sSALl1-eth2
         net.addLink(hSALf1rec1, sSALf11)   # hSALf1rec1-eth0 ↔ sSALf11-eth3
         net.addLink(hSALf2rec1, sSALf21)   # hSALf2rec1-eth0 ↔ sSALf21-eth3
         net.addLink(hSALf3rec1, sSALf31)   # hSALf3rec1-eth0 ↔ sSALf31-eth3
@@ -113,7 +113,7 @@ class Saltillo:
         sSALd1  = net.get('sSALd1')
         sSALd2  = net.get('sSALd2')
         sSALd3  = net.get('sSALd3')
-        sSALl   = net.get('sSALl')
+        sSALl1   = net.get('sSALl1')
         sSALf11 = net.get('sSALf11')
         sSALf12 = net.get('sSALf12')
         sSALf13 = net.get('sSALf13')
@@ -158,7 +158,7 @@ class Saltillo:
 
         # ── Distribution 1 – Floor 1 & Lobby ─────────────────────────
         sSALd1.cmd('ovs-vsctl set port sSALd1-eth1 trunks=20,50')   # uplink
-        sSALd1.cmd('ovs-vsctl set port sSALd1-eth2 trunks=50')      # to sSALl  (lobby-only)
+        sSALd1.cmd('ovs-vsctl set port sSALd1-eth2 trunks=50')      # to sSALl1  (lobby-only)
         sSALd1.cmd('ovs-vsctl set port sSALd1-eth3 trunks=20,50')   # to sSALf11
         sSALd1.cmd('ovs-vsctl set port sSALd1-eth4 trunks=20,50')   # to sSALf12
         sSALd1.cmd('ovs-vsctl set port sSALd1-eth5 trunks=20,50')   # to sSALf13
@@ -177,8 +177,8 @@ class Saltillo:
         sSALd3.cmd('ovs-vsctl set port sSALd3-eth4 trunks=20,50')   # to sSALf33
 
         # ── Lobby switch ──────────────────────────────────────────────
-        sSALl.cmd('ovs-vsctl set port sSALl-eth1 trunks=50')        # uplink
-        sSALl.cmd('ovs-vsctl set port sSALl-eth2 tag=50')           # to hSALlrec1
+        sSALl1.cmd('ovs-vsctl set port sSALl1-eth1 trunks=50')        # uplink
+        sSALl1.cmd('ovs-vsctl set port sSALl1-eth2 tag=50')           # to hSALlrec1
 
         # ── Floor 1 access switches ───────────────────────────────────
         sSALf11.cmd('ovs-vsctl set port sSALf11-eth1 trunks=20,50') # uplink
