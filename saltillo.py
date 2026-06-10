@@ -11,16 +11,16 @@ from mininet.log import setLogLevel
 # 3 Distribution switch
 # 11 Access switches
 
-import Router
+from base_nodes import SwitchL3, Router
 
 class Saltillo:
     def __init__(self):
         self.gateway = None
 
     def build(self, net):
-        self.gateway = net.addHost('saltillo', cls=Router.Router, ip='10.30.255.254/16')
+        self.gateway = net.addHost('saltillo', cls=Router, ip='10.30.255.254/16')
 
-        sSALc1 = net.addSwitch('sSALc1', failMode='standalone') # Core switch
+        sSALc1 = net.addSwitch('sSALc1', cls=SwitchL3, failMode='standalone') # Core switch
 
         sSALd1 = net.addSwitch('sSALd1', failMode='standalone') ## Floor 1 & lobby
         sSALd2 = net.addSwitch('sSALd2', failMode='standalone') ## Floor 2 
@@ -29,22 +29,22 @@ class Saltillo:
         ## FLOOR 1
         #s_lpoe12 = net.addSwitch('sSALLlPoE12', failMode='standalone') ## Lobby PoE switch 
         sSALf11 = net.addSwitch('sSALf11',failMode='standalone') ## Floor 1 non-PoE 48P (1)
-        #sSALf12 = net.addSwitch('sSALf12',failMode='standalone') # Floor 1 Non-PoE 48P (2)
-        #sSALf13 = net.addSwitch('sSALf13', failMode='standalone') # Floor 1 PoE 48P
+        sSALf12 = net.addSwitch('sSALf12',failMode='standalone') # Floor 1 Non-PoE 48P (2)
+        sSALf13 = net.addSwitch('sSALf13', failMode='standalone') # Floor 1 PoE 48P
         
         ##FLOOR 2 
-        #s_f2poe12 = net.addSwitch('sSALTILLOf2poe12', failMode='standalone')
         sSALf21 = net.addSwitch('sSALf21', failMode='standalone') # Floor 2 Non-PoE 24P
-        #sSALf22 = net.addSwitch('sSALf22', failMode='standalone') # Floor 2 Non-PoE 48P (1)
-        #sSALf23 = net.addSwitch('sSALf23', failMode='standalone') # Floor 2 Non-PoE 48P (2)
+        sSALf22 = net.addSwitch('sSALf22', failMode='standalone') # Floor 2 Non-PoE 48P (1)
+        sSALf23 = net.addSwitch('sSALf23', failMode='standalone') # Floor 2 Non-PoE 48P (2)
+        sSALf24 = net.addSwitch('sSALf24', failMode='standalone')  #Floor 2 PoE 12P
 
         
         ##FLOOR 3 
         sSALf31 = net.addSwitch('sSALf31', failMode='standalone') # Floor 3 Non-PoE 24P
-        #sSALf32 = net.addSwitch('sSALf32', failMode='standalone') # Floor 3 PoE 24P
-        #sSALf33 = net.addSwitch('sSALf33', failMode='standalone') # Floor 3 Non-PoE 48P
+        sSALf32 = net.addSwitch('sSALf32', failMode='standalone') # Floor 3 PoE 24P
+        sSALf33 = net.addSwitch('sSALf33', failMode='standalone') # Floor 3 Non-PoE 48P
 
-        ############# Linking process ##########################
+        #-Linking process
         
         net.addLink(self.gateway, sSALc1) # Core to router
 
@@ -66,7 +66,7 @@ class Saltillo:
         net.addLink(sSALd3,sSALf31)
         #net.addLink(sSALDis3,sSALLf3npoe48)
 
-        ######### Adding representative hosts #########################
+        # Representative hosts
 
         ## Representative nodes engineering - VLAN 20
         hSALf1eng1 = net.addHost('hSALf1eng1', ip='10.30.20.10/25')                   
@@ -90,9 +90,6 @@ class Saltillo:
 
         CLI(net)
         net.stop()
-
-    
-
 
 
 def run():

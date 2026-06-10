@@ -1,0 +1,165 @@
+s9  ovs-vsctl set port s9-eth2  vlan_mode=access tag=50
+s9  ovs-vsctl set port s9-eth3  vlan_mode=access tag=110
+s9  ovs-vsctl set port s9-eth1  vlan_mode=trunk trunks=50,110
+
+s10 ovs-vsctl set port s10-eth2 vlan_mode=access tag=110
+s10 ovs-vsctl set port s10-eth3 vlan_mode=access tag=130
+s10 ovs-vsctl set port s10-eth1 vlan_mode=trunk trunks=110,130
+
+s11 ovs-vsctl set port s11-eth2 vlan_mode=access tag=60
+s11 ovs-vsctl set port s11-eth3 vlan_mode=access tag=70
+s11 ovs-vsctl set port s11-eth4 vlan_mode=access tag=130
+s11 ovs-vsctl set port s11-eth1 vlan_mode=trunk trunks=60,70,130
+
+s12 ovs-vsctl set port s12-eth2 vlan_mode=access tag=100
+s12 ovs-vsctl set port s12-eth3 vlan_mode=access tag=120
+s12 ovs-vsctl set port s12-eth1 vlan_mode=trunk trunks=100,120
+
+s13 ovs-vsctl set port s13-eth2 vlan_mode=access tag=30
+s13 ovs-vsctl set port s13-eth3 vlan_mode=access tag=50
+s13 ovs-vsctl set port s13-eth1 vlan_mode=trunk trunks=30,50
+
+s14 ovs-vsctl set port s14-eth2 vlan_mode=access tag=30
+s14 ovs-vsctl set port s14-eth1 vlan_mode=trunk trunks=30
+
+s15 ovs-vsctl set port s15-eth2 vlan_mode=access tag=30
+s15 ovs-vsctl set port s15-eth3 vlan_mode=access tag=60
+s15 ovs-vsctl set port s15-eth4 vlan_mode=access tag=70
+s15 ovs-vsctl set port s15-eth1 vlan_mode=trunk trunks=30,60,70
+
+s16 ovs-vsctl set port s16-eth2 vlan_mode=access tag=100
+s16 ovs-vsctl set port s16-eth3 vlan_mode=access tag=120
+s16 ovs-vsctl set port s16-eth1 vlan_mode=trunk trunks=100,120
+
+s17 ovs-vsctl set port s17-eth2 vlan_mode=access tag=20
+s17 ovs-vsctl set port s17-eth3 vlan_mode=access tag=50
+s17 ovs-vsctl set port s17-eth1 vlan_mode=trunk trunks=20,50
+
+s18 ovs-vsctl set port s18-eth2 vlan_mode=access tag=20
+s18 ovs-vsctl set port s18-eth1 vlan_mode=trunk trunks=20
+
+s19 ovs-vsctl set port s19-eth2 vlan_mode=access tag=20
+s19 ovs-vsctl set port s19-eth1 vlan_mode=trunk trunks=20
+
+s20 ovs-vsctl set port s20-eth2 vlan_mode=access tag=100
+s20 ovs-vsctl set port s20-eth3 vlan_mode=access tag=120
+s20 ovs-vsctl set port s20-eth1 vlan_mode=trunk trunks=100,120
+
+s21 ovs-vsctl set port s21-eth2 vlan_mode=access tag=20
+s21 ovs-vsctl set port s21-eth3 vlan_mode=access tag=50
+s21 ovs-vsctl set port s21-eth1 vlan_mode=trunk trunks=20,50
+
+s22 ovs-vsctl set port s22-eth2 vlan_mode=access tag=20
+s22 ovs-vsctl set port s22-eth1 vlan_mode=trunk trunks=20
+
+s23 ovs-vsctl set port s23-eth2 vlan_mode=access tag=20
+s23 ovs-vsctl set port s23-eth3 vlan_mode=access tag=70
+s23 ovs-vsctl set port s23-eth1 vlan_mode=trunk trunks=20,70
+
+s24 ovs-vsctl set port s24-eth2 vlan_mode=access tag=100
+s24 ovs-vsctl set port s24-eth3 vlan_mode=access tag=120
+s24 ovs-vsctl set port s24-eth1 vlan_mode=trunk trunks=100,120
+
+s25 ovs-vsctl set port s25-eth2 vlan_mode=access tag=20
+s25 ovs-vsctl set port s25-eth3 vlan_mode=access tag=50
+s25 ovs-vsctl set port s25-eth1 vlan_mode=trunk trunks=20,50
+
+s26 ovs-vsctl set port s26-eth2 vlan_mode=access tag=20
+s26 ovs-vsctl set port s26-eth1 vlan_mode=trunk trunks=20
+
+s27 ovs-vsctl set port s27-eth2 vlan_mode=access tag=20
+s27 ovs-vsctl set port s27-eth1 vlan_mode=trunk trunks=20
+
+s28 ovs-vsctl set port s28-eth2 vlan_mode=access tag=100
+s28 ovs-vsctl set port s28-eth3 vlan_mode=access tag=120
+s28 ovs-vsctl set port s28-eth1 vlan_mode=trunk trunks=100,120
+
+s29 ovs-vsctl set port s29-eth2 vlan_mode=access tag=50
+s29 ovs-vsctl set port s29-eth3 vlan_mode=access tag=60
+s29 ovs-vsctl set port s29-eth4 vlan_mode=access tag=110
+s29 ovs-vsctl set port s29-eth1 vlan_mode=trunk trunks=50,60,110
+
+s30 ovs-vsctl set port s30-eth2 vlan_mode=access tag=40
+s30 ovs-vsctl set port s30-eth1 vlan_mode=trunk trunks=40
+
+s31 ovs-vsctl set port s31-eth2 vlan_mode=access tag=40
+s31 ovs-vsctl set port s31-eth1 vlan_mode=trunk trunks=40
+
+s32 ovs-vsctl set port s32-eth2 vlan_mode=access tag=40
+s32 ovs-vsctl set port s32-eth3 vlan_mode=access tag=70
+s32 ovs-vsctl set port s32-eth1 vlan_mode=trunk trunks=40,70
+
+s33 ovs-vsctl set port s33-eth2 vlan_mode=access tag=100
+s33 ovs-vsctl set port s33-eth3 vlan_mode=access tag=120
+s33 ovs-vsctl set port s33-eth1 vlan_mode=trunk trunks=100,120
+
+s34 ovs-vsctl set port s34-eth2 vlan_mode=access tag=10
+s34 ovs-vsctl set port s34-eth3 vlan_mode=access tag=50
+s34 ovs-vsctl set port s34-eth1 vlan_mode=trunk trunks=10,50
+
+s35 ovs-vsctl set port s35-eth2 vlan_mode=access tag=10
+s35 ovs-vsctl set port s35-eth3 vlan_mode=access tag=60
+s35 ovs-vsctl set port s35-eth4 vlan_mode=access tag=70
+s35 ovs-vsctl set port s35-eth1 vlan_mode=trunk trunks=10,60,70
+
+s36 ovs-vsctl set port s36-eth2 vlan_mode=access tag=100
+s36 ovs-vsctl set port s36-eth3 vlan_mode=access tag=120
+s36 ovs-vsctl set port s36-eth1 vlan_mode=trunk trunks=100,120
+
+
+
+
+s2 ovs-vsctl set port s2-eth1 vlan_mode=trunk trunks=50,60,70,100,110,120,130
+s2 ovs-vsctl set port s2-eth2 vlan_mode=trunk trunks=50,60,70,100,110,120,130
+s2 ovs-vsctl set port s2-eth3 vlan_mode=trunk trunks=50,60,70,100,110,120,130
+s2 ovs-vsctl set port s2-eth4 vlan_mode=trunk trunks=50,60,70,100,110,120,130
+s2 ovs-vsctl set port s2-eth5 vlan_mode=trunk trunks=50,60,70,100,110,120,130
+
+s3 ovs-vsctl set port s3-eth1 vlan_mode=trunk trunks=30,50,60,70,100,120
+s3 ovs-vsctl set port s3-eth2 vlan_mode=trunk trunks=30,50,60,70,100,120
+s3 ovs-vsctl set port s3-eth3 vlan_mode=trunk trunks=30,50,60,70,100,120
+s3 ovs-vsctl set port s3-eth4 vlan_mode=trunk trunks=30,50,60,70,100,120
+s3 ovs-vsctl set port s3-eth5 vlan_mode=trunk trunks=30,50,60,70,100,120
+
+s4 ovs-vsctl set port s4-eth1 vlan_mode=trunk trunks=20,50,100,120
+s4 ovs-vsctl set port s4-eth2 vlan_mode=trunk trunks=20,50,100,120
+s4 ovs-vsctl set port s4-eth3 vlan_mode=trunk trunks=20,50,100,120
+s4 ovs-vsctl set port s4-eth4 vlan_mode=trunk trunks=20,50,100,120
+s4 ovs-vsctl set port s4-eth5 vlan_mode=trunk trunks=20,50,100,120
+
+s5 ovs-vsctl set port s5-eth1 vlan_mode=trunk trunks=20,50,70,100,120
+s5 ovs-vsctl set port s5-eth2 vlan_mode=trunk trunks=20,50,70,100,120
+s5 ovs-vsctl set port s5-eth3 vlan_mode=trunk trunks=20,50,70,100,120
+s5 ovs-vsctl set port s5-eth4 vlan_mode=trunk trunks=20,50,70,100,120
+s5 ovs-vsctl set port s5-eth5 vlan_mode=trunk trunks=20,50,70,100,120
+
+s6 ovs-vsctl set port s6-eth1 vlan_mode=trunk trunks=20,50,100,120
+s6 ovs-vsctl set port s6-eth2 vlan_mode=trunk trunks=20,50,100,120
+s6 ovs-vsctl set port s6-eth3 vlan_mode=trunk trunks=20,50,100,120
+s6 ovs-vsctl set port s6-eth4 vlan_mode=trunk trunks=20,50,100,120
+s6 ovs-vsctl set port s6-eth5 vlan_mode=trunk trunks=20,50,100,120
+
+s7 ovs-vsctl set port s7-eth1 vlan_mode=trunk trunks=40,50,60,70,100,110,120
+s7 ovs-vsctl set port s7-eth2 vlan_mode=trunk trunks=40,50,60,70,100,110,120
+s7 ovs-vsctl set port s7-eth3 vlan_mode=trunk trunks=40,50,60,70,100,110,120
+s7 ovs-vsctl set port s7-eth4 vlan_mode=trunk trunks=40,50,60,70,100,110,120
+s7 ovs-vsctl set port s7-eth5 vlan_mode=trunk trunks=40,50,60,70,100,110,120
+s7 ovs-vsctl set port s7-eth6 vlan_mode=trunk trunks=40,50,60,70,100,110,120
+
+s8 ovs-vsctl set port s8-eth1 vlan_mode=trunk trunks=10,50,60,70,100,120
+s8 ovs-vsctl set port s8-eth2 vlan_mode=trunk trunks=10,50,60,70,100,120
+s8 ovs-vsctl set port s8-eth3 vlan_mode=trunk trunks=10,50,60,70,100,120
+s8 ovs-vsctl set port s8-eth4 vlan_mode=trunk trunks=10,50,60,70,100,120
+
+
+
+s1 ovs-vsctl set port s1-eth1 vlan_mode=trunk trunks=10,20,30,40,50,60,70,100,110,120,130
+s1 ovs-vsctl set port s1-eth2 vlan_mode=trunk trunks=10,20,30,40,50,60,70,100,110,120,130
+s1 ovs-vsctl set port s1-eth3 vlan_mode=trunk trunks=10,20,30,40,50,60,70,100,110,120,130
+s1 ovs-vsctl set port s1-eth4 vlan_mode=trunk trunks=10,20,30,40,50,60,70,100,110,120,130
+s1 ovs-vsctl set port s1-eth5 vlan_mode=trunk trunks=10,20,30,40,50,60,70,100,110,120,130
+s1 ovs-vsctl set port s1-eth6 vlan_mode=trunk trunks=10,20,30,40,50,60,70,100,110,120,130
+s1 ovs-vsctl set port s1-eth7 vlan_mode=trunk trunks=10,20,30,40,50,60,70,100,110,120,130
+s1 ovs-vsctl set port s1-eth8 vlan_mode=trunk trunks=10,20,30,40,50,60,70,100,110,120,130
+
+pingall
