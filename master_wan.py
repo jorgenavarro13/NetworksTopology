@@ -5,27 +5,24 @@ from mininet.cli import CLI
 from mininet.log import setLogLevel
 
 ## Import our modular site topologies
-from site_a import SiteA, Router
-from site_b import SiteB
+
+from saltillo import Saltillo
+from Router import Router
 
 def build_master():
     net = Mininet(controller=None, switch=OVSSwitch, link=TCLink)
 
-    site_a = SiteA()
-    site_b = SiteB()
-    site_a.build(net)
-    site_b.build(net)
+    saltillo = Saltillo()
+    saltillo.build(net)
 
     r2 = net.addHost('r2', cls=Router)
     r3 = net.addHost('r3', cls=Router)
 
-    net.addLink(site_a.gateway,r2)
-    net.addLink(site_a.gateway,r3)
-    net.addLink(site_b.gateway,r2)
-    net.addLink(site_b.gateway,r3)
+    net.addLink(saltillo.gateway,r2)
+    net.addLink(saltillo.gateway,r3)
 
     net.start()
-    r1, r4 = site_a.gateway, site_b.gateway
+    r1, r4 = saltillo.gateway, saltillo.gateway
 
     r1.setIP('172.16.1.1/30', intf='r1-eth1')
     r1.setIP('172.16.2.1/30', intf='r1-eth2')
