@@ -1,3 +1,3 @@
-10.30.130.40    dns.agco.saltillo
-10.30.130.20    web.agco.saltillo
-10.30.130.30    ftp.agco.saltillo
+10.30.130.2    dns.agco.saltillo
+10.30.130.3    web.agco.saltillo
+10.30.130.4    ftp.agco.saltillo

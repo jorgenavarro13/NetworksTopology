@@ -1,0 +1,22 @@
+dhcpsrv dnsmasq --conf -file =/ tmp/ dhcp_campus .conf --pid -file =/ tmp/
+dhcp_campus .pid --dhcp - leasefile =/ tmp/ dhcp_campus .leases --log -dhcp --log -
+facility =/ tmp/ dhcp_campus .log
+
+
+hSALdhcp1 dnsmasq --conf-file=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.conf --pid-file=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.pid --dhcp-leasefile=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.leases --log-dhcp --log-facility=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.log
+
+hSALdhcp1 dnsmasq \
+  --conf-file=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.conf \
+  --pid-file=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.pid \
+  --dhcp-leasefile=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.leases \
+  --log-dhcp \
+  --log-facility=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.log
+
+
+
+tail -f /home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.log
+
+tcpdump -i hSALdhcp1-eth0 -n -v any port
+
+
+xterm 

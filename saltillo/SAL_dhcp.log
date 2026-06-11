@@ -467,3 +467,77 @@ Jun 11 02:57:58 dnsmasq[81663]: query[A] web.agco.saltillo from 10.30.50.5
 Jun 11 02:57:58 dnsmasq[81663]: /home/jorge/Downloads/NetworksTopology/saltillo/records.txt web.agco.saltillo is 10.30.130.20
 Jun 11 02:57:58 dnsmasq[81663]: query[AAAA] web.agco.saltillo from 10.30.50.5
 Jun 11 02:57:58 dnsmasq[81663]: config error is REFUSED (EDE: not ready)
+Jun 11 03:56:46 dnsmasq[87230]: started, version 2.90 cachesize 150
+Jun 11 03:56:46 dnsmasq[87230]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 03:56:46 dnsmasq[87230]: warning: no upstream servers configured
+Jun 11 03:56:46 dnsmasq-dhcp[87230]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 03:56:46 dnsmasq-dhcp[87230]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 03:56:46 dnsmasq[87230]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 3 names
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 tags: vlan50, hSALdhcp1-eth0
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 requested options: 15:domain-name, 6:dns-server, 12:hostname
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 next server: 10.30.130.40
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 sent size:  1 option: 53 message-type  5
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 sent size:  4 option: 51 lease-time  12h
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 sent size:  4 option: 58 T1  6h
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 sent size:  4 option: 59 T2  10h30m
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 03:56:52 dnsmasq-dhcp[87230]: 48740186 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 03:59:40 dnsmasq[87230]: query[A] web.agco.saltillo from 10.30.50.5
+Jun 11 03:59:40 dnsmasq[87230]: /home/jorge/Downloads/NetworksTopology/saltillo/records.txt web.agco.saltillo is 10.30.130.20
+Jun 11 03:59:52 dnsmasq[87230]: query[A] ftp.agco.saltillo from 10.30.50.5
+Jun 11 03:59:52 dnsmasq[87230]: config error is REFUSED (EDE: not ready)
+Jun 11 04:01:56 dnsmasq[89268]: started, version 2.90 cachesize 150
+Jun 11 04:01:56 dnsmasq[89268]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 04:01:56 dnsmasq[89268]: warning: no upstream servers configured
+Jun 11 04:01:56 dnsmasq-dhcp[89268]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 04:01:56 dnsmasq-dhcp[89268]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 04:01:56 dnsmasq[89268]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 3 names
+Jun 11 04:06:31 dnsmasq[91087]: started, version 2.90 cachesize 150
+Jun 11 04:06:31 dnsmasq[91087]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 04:06:31 dnsmasq[91087]: warning: no upstream servers configured
+Jun 11 04:06:31 dnsmasq-dhcp[91087]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 04:06:31 dnsmasq-dhcp[91087]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 04:06:31 dnsmasq[91087]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 3 names
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 tags: vlan50, hSALdhcp1-eth0
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 requested options: 15:domain-name, 6:dns-server, 12:hostname
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 next server: 10.30.130.40
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 sent size:  1 option: 53 message-type  5
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 sent size:  4 option: 51 lease-time  12h
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 sent size:  4 option: 58 T1  6h
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 sent size:  4 option: 59 T2  10h30m
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 04:06:41 dnsmasq-dhcp[91087]: 3453190437 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 04:06:52 dnsmasq[91087]: query[A] ftp.agco.saltillo from 10.30.50.5
+Jun 11 04:06:52 dnsmasq[91087]: /home/jorge/Downloads/NetworksTopology/saltillo/records.txt ftp.agco.saltillo is 10.30.130.30
+Jun 11 04:12:50 dnsmasq[93201]: started, version 2.90 cachesize 150
+Jun 11 04:12:50 dnsmasq[93201]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 04:12:50 dnsmasq[93201]: warning: no upstream servers configured
+Jun 11 04:12:50 dnsmasq-dhcp[93201]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 04:12:50 dnsmasq-dhcp[93201]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 04:12:50 dnsmasq[93201]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 3 names
+Jun 11 04:55:25 dnsmasq[99214]: started, version 2.90 cachesize 150
+Jun 11 04:55:25 dnsmasq[99214]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 04:55:25 dnsmasq[99214]: warning: no upstream servers configured
+Jun 11 04:55:25 dnsmasq-dhcp[99214]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 04:55:25 dnsmasq-dhcp[99214]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 04:55:25 dnsmasq[99214]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 3 names
+Jun 11 05:16:11 dnsmasq[108995]: started, version 2.90 cachesize 150
+Jun 11 05:16:11 dnsmasq[108995]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 05:16:11 dnsmasq[108995]: warning: no upstream servers configured
+Jun 11 05:16:11 dnsmasq-dhcp[108995]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 05:16:11 dnsmasq-dhcp[108995]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 05:16:11 dnsmasq[108995]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 3 names
