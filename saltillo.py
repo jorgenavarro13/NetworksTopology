@@ -112,7 +112,7 @@ class Saltillo:
         #hSALlrec1  = net.addHost('hSALlrec1',  ip=None)
         hSALlrec1  = net.addHost('hSALlrec1', ip='10.30.50.10/27')
         hSALf1rec1 = net.addHost('hSALf1rec1',ip='10.30.50.11/27')
-        hSALf1rec2 = net.addHost('hSALf1rec2', ip=None)
+        hSALf1rec2 = net.addHost('hSALf1rec2', ip=None, privateDirs=['/etc'])
         
         hSALf2rec1 = net.addHost('hSALf2rec1', ip='10.30.50.20/27')
         hSALf3rec1 = net.addHost('hSALf3rec1', ip='10.30.50.30/27')
@@ -145,10 +145,12 @@ class Saltillo:
         hSALweb1 = net.get('hSALweb1')
         hSALftp1 = net.get('hSALftp1')
         hSALdhcp1 = net.get('hSALdhcp1')
+        hSALf1rec2 = net.get('hSALf1rec2')
         
 
         # Fix, sometimes it fails but its a temporal solution dhclient fstab bug: privateDirs=['/etc'] creates isolated /etc without fstab
         sSALf33.cmd('touch /etc/fstab')
+        hSALf1rec2.cmd('touch /etc/fstab')
 
         # ── Gateway (WAN router) ──────────────────────────────────────
         self.gateway.setIP('10.30.99.1/30', intf='saltillo-eth0')
@@ -243,16 +245,13 @@ class Saltillo:
         hSALdhcp1.cmd('dnsmasq --conf-file=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.conf --pid-file=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.pid --dhcp-leasefile=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.leases --log-dhcp --log-facility=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.log &')
         sSALc1.cmd('pkill dhcrelay 2>/dev/null')
         sSALc1.cmd('dhcrelay -4 -iu salc1.v130 -id salc1.v50 10.30.130.40 &')
-
-
+        
+        hSALweb1.cmd('python3 -m http.server 80 --directory /home/jorge/Downloads/NetworksTopology/saltillo/web &')
         # Cleanup
-        #hSALsrv1.cmd('pkill -f "http.server" 2>/dev/null')
-        #sSALc1.cmd('pkill dhcrelay 2>/dev/null')
 
         CLI(net)
         sSALc1.cmd('pkill dhcrelay 2>/dev/null')
         net.stop()
-
 
 def run():
     net = Mininet(controller=None, switch=OVSSwitch, link=TCLink, autoSetMacs=True)
