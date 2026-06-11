@@ -107,3 +107,363 @@ Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 28 broadca
 Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size: 12 option: 12 hostname  JorgeNavarro
 Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option:  6 dns-server  8.8.8.8
 Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 01:48:21 dnsmasq[63204]: started, version 2.90 cachesize 150
+Jun 11 01:48:21 dnsmasq[63204]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 01:48:21 dnsmasq[63204]: warning: no upstream servers configured
+Jun 11 01:48:21 dnsmasq-dhcp[63204]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 01:48:21 dnsmasq-dhcp[63204]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 01:48:21 dnsmasq[63204]: failed to load names from /home/jorge/Downloads/NetworksTopology/saltillo/records.txt: Permission denied
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 client provides name: JorgeNavarro
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 tags: vlan50, hSALdhcp1-eth0
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b JorgeNavarro
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 requested options: 15:domain-name, 6:dns-server, 119:domain-search, 
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 requested options: 12:hostname, 44:netbios-ns, 47:netbios-scope, 
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 requested options: 26:mtu, 121:classless-static-route, 42:ntp-server
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 next server: 10.30.130.40
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 sent size:  1 option: 53 message-type  5
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 sent size:  4 option: 51 lease-time  12h
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 sent size:  4 option: 58 T1  6h
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 sent size:  4 option: 59 T2  10h30m
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 sent size: 12 option: 12 hostname  JorgeNavarro
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 01:50:49 dnsmasq-dhcp[63204]: 2698538532 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 01:53:31 dnsmasq[65265]: started, version 2.90 cachesize 150
+Jun 11 01:53:31 dnsmasq[65265]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 01:53:31 dnsmasq[65265]: warning: no upstream servers configured
+Jun 11 01:53:31 dnsmasq-dhcp[65265]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 01:53:31 dnsmasq-dhcp[65265]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 01:53:31 dnsmasq[65265]: failed to load names from /home/jorge/Downloads/NetworksTopology/saltillo/records.txt: Permission denied
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 client provides name: JorgeNavarro
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 tags: vlan50, hSALdhcp1-eth0
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b JorgeNavarro
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 requested options: 15:domain-name, 6:dns-server, 119:domain-search, 
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 requested options: 12:hostname, 44:netbios-ns, 47:netbios-scope, 
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 requested options: 26:mtu, 121:classless-static-route, 42:ntp-server
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 next server: 10.30.130.40
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 sent size:  1 option: 53 message-type  5
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 sent size:  4 option: 51 lease-time  12h
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 sent size:  4 option: 58 T1  6h
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 sent size:  4 option: 59 T2  10h30m
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 sent size: 12 option: 12 hostname  JorgeNavarro
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 01:53:39 dnsmasq-dhcp[65265]: 382542170 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 01:55:17 dnsmasq[65265]: query[A] dns.agco.local from 10.30.50.5
+Jun 11 01:55:17 dnsmasq[65265]: config error is REFUSED (EDE: not ready)
+Jun 11 02:06:36 dnsmasq[67731]: started, version 2.90 cachesize 150
+Jun 11 02:06:36 dnsmasq[67731]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 02:06:36 dnsmasq[67731]: warning: no upstream servers configured
+Jun 11 02:06:36 dnsmasq-dhcp[67731]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 02:06:36 dnsmasq-dhcp[67731]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 02:06:36 dnsmasq[67731]: failed to load names from /home/jorge/Downloads/NetworksTopology/saltillo/records.txt: Permission denied
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 client provides name: JorgeNavarro
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b JorgeNavarro
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 requested options: 15:domain-name, 6:dns-server, 119:domain-search, 
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 requested options: 12:hostname, 44:netbios-ns, 47:netbios-scope, 
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 requested options: 26:mtu, 121:classless-static-route, 42:ntp-server
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 next server: 10.30.130.40
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 sent size:  1 option: 53 message-type  5
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 sent size:  4 option: 58 T1  6h
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 sent size: 12 option: 12 hostname  JorgeNavarro
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:06:48 dnsmasq-dhcp[67731]: 120694907 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:06:53 dnsmasq[67731]: query[A] dns.agco.local from 10.30.50.5
+Jun 11 02:06:53 dnsmasq[67731]: config error is REFUSED (EDE: not ready)
+Jun 11 02:09:47 dnsmasq[67731]: query[A] web.agco.saltillo from 10.30.50.5
+Jun 11 02:09:47 dnsmasq[67731]: config error is REFUSED (EDE: not ready)
+Jun 11 02:10:02 dnsmasq[67731]: query[A] web.agco.salti from 10.30.50.5
+Jun 11 02:10:02 dnsmasq[67731]: config error is REFUSED (EDE: not ready)
+Jun 11 02:24:30 dnsmasq[70292]: started, version 2.90 cachesize 150
+Jun 11 02:24:30 dnsmasq[70292]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 02:24:30 dnsmasq[70292]: warning: no upstream servers configured
+Jun 11 02:24:30 dnsmasq-dhcp[70292]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 02:24:30 dnsmasq-dhcp[70292]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 02:24:30 dnsmasq[70292]: failed to load names from /home/jorge/Downloads/NetworksTopology/saltillo/records.txt: Permission denied
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 client provides name: JorgeNavarro
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b JorgeNavarro
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 requested options: 15:domain-name, 6:dns-server, 119:domain-search, 
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 requested options: 12:hostname, 44:netbios-ns, 47:netbios-scope, 
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 requested options: 26:mtu, 121:classless-static-route, 42:ntp-server
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 next server: 10.30.130.40
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 sent size:  1 option: 53 message-type  5
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 sent size:  4 option: 58 T1  6h
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 sent size: 12 option: 12 hostname  JorgeNavarro
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:24:47 dnsmasq-dhcp[70292]: 3124324116 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:27:42 dnsmasq[63204]: exiting on receipt of SIGTERM
+Jun 11 02:27:42 dnsmasq[65265]: exiting on receipt of SIGTERM
+Jun 11 02:27:42 dnsmasq[67731]: exiting on receipt of SIGTERM
+Jun 11 02:27:42 dnsmasq[70292]: exiting on receipt of SIGTERM
+Jun 11 02:32:50 dnsmasq[72349]: started, version 2.90 cachesize 150
+Jun 11 02:32:50 dnsmasq[72349]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 02:32:50 dnsmasq[72349]: warning: no upstream servers configured
+Jun 11 02:32:50 dnsmasq-dhcp[72349]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 02:32:50 dnsmasq-dhcp[72349]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 02:32:50 dnsmasq[72349]: failed to load names from /home/jorge/Downloads/NetworksTopology/saltillo/records.txt: Permission denied
+Jun 11 02:33:34 dnsmasq[72349]: exiting on receipt of SIGTERM
+Jun 11 02:41:47 dnsmasq[74494]: started, version 2.90 cachesize 150
+Jun 11 02:41:47 dnsmasq[74494]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 02:41:47 dnsmasq[74494]: warning: no upstream servers configured
+Jun 11 02:41:47 dnsmasq-dhcp[74494]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 02:41:47 dnsmasq-dhcp[74494]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 02:41:47 dnsmasq[74494]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 2 names
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 client provides name: JorgeNavarro
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b JorgeNavarro
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 requested options: 15:domain-name, 6:dns-server, 119:domain-search, 
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 requested options: 12:hostname, 44:netbios-ns, 47:netbios-scope, 
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 requested options: 26:mtu, 121:classless-static-route, 42:ntp-server
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 next server: 10.30.130.40
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 sent size:  1 option: 53 message-type  5
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 sent size:  4 option: 58 T1  6h
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 sent size: 12 option: 12 hostname  JorgeNavarro
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:42:10 dnsmasq-dhcp[74494]: 378950521 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:45:39 dnsmasq[76342]: started, version 2.90 cachesize 150
+Jun 11 02:45:39 dnsmasq[76342]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 02:45:39 dnsmasq[76342]: warning: no upstream servers configured
+Jun 11 02:45:39 dnsmasq-dhcp[76342]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 02:45:39 dnsmasq-dhcp[76342]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 02:45:39 dnsmasq[76342]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 2 names
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 client provides name: JorgeNavarro
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b JorgeNavarro
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 requested options: 15:domain-name, 6:dns-server, 119:domain-search, 
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 requested options: 12:hostname, 44:netbios-ns, 47:netbios-scope, 
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 requested options: 26:mtu, 121:classless-static-route, 42:ntp-server
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 next server: 10.30.130.40
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 sent size:  1 option: 53 message-type  5
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 sent size:  4 option: 58 T1  6h
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 sent size: 12 option: 12 hostname  JorgeNavarro
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:45:44 dnsmasq-dhcp[76342]: 201088274 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:46:52 dnsmasq[78001]: started, version 2.90 cachesize 150
+Jun 11 02:46:52 dnsmasq[78001]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 02:46:52 dnsmasq[78001]: warning: no upstream servers configured
+Jun 11 02:46:52 dnsmasq-dhcp[78001]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 02:46:52 dnsmasq-dhcp[78001]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 02:46:52 dnsmasq[78001]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 2 names
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 client provides name: JorgeNavarro
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b JorgeNavarro
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 requested options: 15:domain-name, 6:dns-server, 119:domain-search, 
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 requested options: 12:hostname, 44:netbios-ns, 47:netbios-scope, 
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 requested options: 26:mtu, 121:classless-static-route, 42:ntp-server
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 next server: 10.30.130.40
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 sent size:  1 option: 53 message-type  5
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 sent size:  4 option: 58 T1  6h
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 sent size: 12 option: 12 hostname  JorgeNavarro
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:46:57 dnsmasq-dhcp[78001]: 2560514407 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:47:23 dnsmasq[78001]: query[A] web.agco.saltillo from 10.30.50.5
+Jun 11 02:47:23 dnsmasq[78001]: /home/jorge/Downloads/NetworksTopology/saltillo/records.txt web.agco.saltillo is 10.30.130.20
+Jun 11 02:47:48 dnsmasq[78001]: query[A] dns.agco.saltillo from 10.30.50.5
+Jun 11 02:47:48 dnsmasq[78001]: /home/jorge/Downloads/NetworksTopology/saltillo/records.txt dns.agco.saltillo is 10.30.130.40
+Jun 11 02:54:16 dnsmasq[79989]: started, version 2.90 cachesize 150
+Jun 11 02:54:16 dnsmasq[79989]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 02:54:16 dnsmasq[79989]: warning: no upstream servers configured
+Jun 11 02:54:16 dnsmasq-dhcp[79989]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 02:54:16 dnsmasq-dhcp[79989]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 02:54:16 dnsmasq[79989]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 2 names
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 requested options: 15:domain-name, 6:dns-server, 12:hostname
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 next server: 10.30.130.40
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 sent size:  1 option: 53 message-type  5
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 sent size:  4 option: 58 T1  6h
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:54:23 dnsmasq-dhcp[79989]: 2720082258 DHCPDECLINE(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:54:33 dnsmasq-dhcp[79989]: 3692499235 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 DHCPDISCOVER(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 DHCPOFFER(hSALdhcp1-eth0) 10.30.50.6 00:00:00:00:00:0b 
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 requested options: 15:domain-name, 6:dns-server, 12:hostname
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 next server: 10.30.130.40
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  1 option: 53 message-type  2
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 58 T1  6h
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 DHCPDISCOVER(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 DHCPOFFER(hSALdhcp1-eth0) 10.30.50.6 00:00:00:00:00:0b 
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 requested options: 15:domain-name, 6:dns-server, 12:hostname
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 next server: 10.30.130.40
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  1 option: 53 message-type  2
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 58 T1  6h
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.6 00:00:00:00:00:0b 
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 DHCPACK(hSALdhcp1-eth0) 10.30.50.6 00:00:00:00:00:0b 
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 requested options: 15:domain-name, 6:dns-server, 12:hostname
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 next server: 10.30.130.40
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  1 option: 53 message-type  5
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 58 T1  6h
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:54:36 dnsmasq-dhcp[79989]: 3692499235 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:54:37 dnsmasq-dhcp[79989]: 3692499235 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:54:37 dnsmasq-dhcp[79989]: 3692499235 DHCPDECLINE(hSALdhcp1-eth0) 10.30.50.6 00:00:00:00:00:0b 
+Jun 11 02:54:47 dnsmasq-dhcp[79989]: 773922118 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 DHCPDISCOVER(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 DHCPOFFER(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 requested options: 15:domain-name, 6:dns-server, 12:hostname
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 next server: 10.30.130.40
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  1 option: 53 message-type  2
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option: 58 T1  6h
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 requested options: 15:domain-name, 6:dns-server, 12:hostname
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 next server: 10.30.130.40
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  1 option: 53 message-type  5
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option: 58 T1  6h
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:54:50 dnsmasq-dhcp[79989]: 773922118 DHCPDECLINE(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:56:43 dnsmasq[81663]: started, version 2.90 cachesize 150
+Jun 11 02:56:43 dnsmasq[81663]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 11 02:56:43 dnsmasq[81663]: warning: no upstream servers configured
+Jun 11 02:56:43 dnsmasq-dhcp[81663]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 11 02:56:43 dnsmasq-dhcp[81663]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 11 02:56:43 dnsmasq[81663]: read /home/jorge/Downloads/NetworksTopology/saltillo/records.txt - 2 names
+Jun 11 02:56:50 dnsmasq-dhcp[81663]: 416299881 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:56:53 dnsmasq-dhcp[81663]: 416299881 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:56:56 dnsmasq-dhcp[81663]: 416299881 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:57:03 dnsmasq-dhcp[81663]: 3501801527 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 DHCPDISCOVER(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 DHCPOFFER(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 requested options: 15:domain-name, 6:dns-server, 12:hostname
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 next server: 10.30.130.40
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  1 option: 53 message-type  2
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option: 58 T1  6h
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 tags: vlan50, hSALdhcp1-eth0
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 requested options: 15:domain-name, 6:dns-server, 12:hostname
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 next server: 10.30.130.40
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  1 option: 53 message-type  5
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option: 51 lease-time  12h
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option: 58 T1  6h
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option: 59 T2  10h30m
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option:  6 dns-server  10.30.130.40
+Jun 11 02:57:06 dnsmasq-dhcp[81663]: 3501801527 sent size:  4 option:  3 router  10.30.50.1
+Jun 11 02:57:53 dnsmasq[81663]: query[A] web.agco.saltillo from 10.30.50.5
+Jun 11 02:57:53 dnsmasq[81663]: /home/jorge/Downloads/NetworksTopology/saltillo/records.txt web.agco.saltillo is 10.30.130.20
+Jun 11 02:57:58 dnsmasq[81663]: query[A] web.agco.saltillo from 10.30.50.5
+Jun 11 02:57:58 dnsmasq[81663]: /home/jorge/Downloads/NetworksTopology/saltillo/records.txt web.agco.saltillo is 10.30.130.20
+Jun 11 02:57:58 dnsmasq[81663]: query[AAAA] web.agco.saltillo from 10.30.50.5
+Jun 11 02:57:58 dnsmasq[81663]: config error is REFUSED (EDE: not ready)
