@@ -42,12 +42,14 @@ class Monterrey:
     def build(self, net: Mininet):
         vlan_str = "10,20,30,40,50,60,70,100,110,120,130"
 
+        # ================= ROUTER / WAN =================
         self.gateway = net.addHost(
             'monterrey',
             cls=Router,
             ip='10.20.255.254/16'
         )
 
+        # IMPORTANTE: sp necesita dpid porque "sp" no es nombre tipo s1, s2, etc.
         sp = net.addSwitch(
             'sp',
             dpid='00000000000000b1',
@@ -55,10 +57,11 @@ class Monterrey:
             failMode='standalone'
         )
 
-        s1 = net.addSwitch('s1', failMode='standalone')
-        s2 = net.addSwitch('s2', failMode='standalone')
-        s3 = net.addSwitch('s3', failMode='standalone')
-        s4 = net.addSwitch('s4', failMode='standalone')
+        # ================= DISTRIBUTION SWITCHES =================
+        s1 = net.addSwitch('s1', failMode='standalone')  # piso 1
+        s2 = net.addSwitch('s2', failMode='standalone')  # piso 2
+        s3 = net.addSwitch('s3', failMode='standalone')  # piso 3
+        s4 = net.addSwitch('s4', failMode='standalone')  # piso 4
 
         net.addLink(self.gateway, sp)
         net.addLink(sp, s1)
@@ -66,6 +69,7 @@ class Monterrey:
         net.addLink(sp, s3)
         net.addLink(sp, s4)
 
+        # ================= PISO 1 =================
         s1f1 = net.addSwitch('s1f1', failMode='standalone')
         s1f2 = net.addSwitch('s1f2', failMode='standalone')
         s1f3 = net.addSwitch('s1f3', failMode='standalone')
@@ -117,6 +121,7 @@ class Monterrey:
         net.addLink(hf1voip1, s1f3)
         net.addLink(hf1cam1, s1f3)
 
+        # ================= PISO 2 =================
         s2f1 = net.addSwitch('s2f1', failMode='standalone')
         s2f2 = net.addSwitch('s2f2', failMode='standalone')
 
@@ -166,6 +171,7 @@ class Monterrey:
         net.addLink(hf2voip1, s2f2)
         net.addLink(hf2cam1, s2f2)
 
+        # ================= PISO 3 =================
         s3f1 = net.addSwitch('s3f1', failMode='standalone')
         s3f2 = net.addSwitch('s3f2', failMode='standalone')
         s3f3 = net.addSwitch('s3f3', failMode='standalone')
@@ -226,6 +232,8 @@ class Monterrey:
         net.addLink(hf3voip1, s3f4)
         net.addLink(hf3cam1, s3f4)
 
+
+        # ================= PISO 4 =================
         s4f1 = net.addSwitch('s4f1', failMode='standalone')
         s4f2 = net.addSwitch('s4f2', failMode='standalone')
         s4f3 = net.addSwitch('s4f3', failMode='standalone')
@@ -293,39 +301,48 @@ class Monterrey:
         net.addLink(hf4voip1, s4f4)
         net.addLink(hf4cam1, s4f4)
 
+
+
+        # ================= START =================
         net.start()
 
-        self.set_access(s1f1, 's1f1-eth2', 50)
-        self.set_access(s1f1, 's1f1-eth3', 110)
-        self.set_access(s1f2, 's1f2-eth2', 130)
-        self.set_access(s1f2, 's1f2-eth3', 130)
-        self.set_access(s1f3, 's1f3-eth2', 120)
-        self.set_access(s1f3, 's1f3-eth3', 100)
+        # ================= ACCESS PORTS =================
+        # Piso 1
+        self.set_access(s1f1, 's1f1-eth2', 50)    # Reception
+        self.set_access(s1f1, 's1f1-eth3', 110)   # Guests
+        self.set_access(s1f2, 's1f2-eth2', 130)   # Servers
+        self.set_access(s1f2, 's1f2-eth3', 130)   # Servers
+        self.set_access(s1f3, 's1f3-eth2', 120)   # VoIP
+        self.set_access(s1f3, 's1f3-eth3', 100)   # Cameras
 
-        self.set_access(s2f1, 's2f1-eth2', 30)
-        self.set_access(s2f1, 's2f1-eth3', 30)
-        self.set_access(s2f1, 's2f1-eth4', 60)
-        self.set_access(s2f1, 's2f1-eth5', 50)
-        self.set_access(s2f2, 's2f2-eth2', 120)
-        self.set_access(s2f2, 's2f2-eth3', 100)
+        # Piso 2
+        self.set_access(s2f1, 's2f1-eth2', 30)    # IoT
+        self.set_access(s2f1, 's2f1-eth3', 30)    # IoT
+        self.set_access(s2f1, 's2f1-eth4', 60)    # Print Servers
+        self.set_access(s2f1, 's2f1-eth5', 50)    # Reception
+        self.set_access(s2f2, 's2f2-eth2', 120)   # VoIP
+        self.set_access(s2f2, 's2f2-eth3', 100)   # Cameras
 
-        self.set_access(s3f1, 's3f1-eth2', 20)
-        self.set_access(s3f2, 's3f2-eth2', 20)
-        self.set_access(s3f2, 's3f2-eth3', 50)
-        self.set_access(s3f3, 's3f3-eth2', 20)
-        self.set_access(s3f3, 's3f3-eth3', 70)
-        self.set_access(s3f4, 's3f4-eth2', 120)
-        self.set_access(s3f4, 's3f4-eth3', 100)
+        # Piso 3
+        self.set_access(s3f1, 's3f1-eth2', 20)    # Engineering
+        self.set_access(s3f2, 's3f2-eth2', 20)    # Engineering overflow
+        self.set_access(s3f2, 's3f2-eth3', 50)    # Reception
+        self.set_access(s3f3, 's3f3-eth2', 20)    # Engineering overflow
+        self.set_access(s3f3, 's3f3-eth3', 70)    # Meeting Rooms
+        self.set_access(s3f4, 's3f4-eth2', 120)   # VoIP
+        self.set_access(s3f4, 's3f4-eth3', 100)   # Cameras
 
-        self.set_access(s4f1, 's4f1-eth2', 20)
-        self.set_access(s4f2, 's4f2-eth2', 20)
-        self.set_access(s4f3, 's4f3-eth2', 20)
-        self.set_access(s4f3, 's4f3-eth3', 10)
-        self.set_access(s4f3, 's4f3-eth4', 40)
-        self.set_access(s4f3, 's4f3-eth5', 50)
-        self.set_access(s4f4, 's4f4-eth2', 120)
-        self.set_access(s4f4, 's4f4-eth3', 100)
+        # Piso 4
+        self.set_access(s4f1, 's4f1-eth2', 20)    # Engineering
+        self.set_access(s4f2, 's4f2-eth2', 20)    # Engineering
+        self.set_access(s4f3, 's4f3-eth2', 20)    # Engineering overflow
+        self.set_access(s4f3, 's4f3-eth3', 10)    # Executives
+        self.set_access(s4f3, 's4f3-eth4', 40)    # HR
+        self.set_access(s4f3, 's4f3-eth5', 50)    # Reception
+        self.set_access(s4f4, 's4f4-eth2', 120)   # VoIP
+        self.set_access(s4f4, 's4f4-eth3', 100)   # Cameras
 
+        # ================= TRUNK PORTS BETWEEN SWITCHES =================
         for link in net.links:
             node1 = link.intf1.node
             node2 = link.intf2.node
@@ -334,6 +351,7 @@ class Monterrey:
                 self.set_trunk(node1, link.intf1.name, vlan_str)
                 self.set_trunk(node2, link.intf2.name, vlan_str)
 
+        # ================= L3 GATEWAYS ON CORE SWITCH =================
         gateways = {
             10: '10.20.10.1/27',
             20: '10.20.20.1/23',
@@ -356,12 +374,14 @@ class Monterrey:
             sp.cmd(f'ip addr add {ip} dev sp.{vlan}')
             sp.cmd(f'ip link set sp.{vlan} up')
 
+        # ================= ROUTING / SWITCHING =================
         sp.cmd('sysctl -w net.ipv4.ip_forward=1')
         sp.cmd('sysctl -w net.ipv4.conf.all.rp_filter=0')
         sp.cmd('sysctl -w net.ipv4.conf.default.rp_filter=0')
         sp.cmd('iptables -P FORWARD ACCEPT')
         sp.cmd('iptables -F FORWARD')
 
+        # Force all switches to behave as normal learning switches
         for sw in net.switches:
             sw.cmd(f'ovs-vsctl set-fail-mode {sw.name} standalone')
             sw.cmd(f'ovs-ofctl del-flows {sw.name}')
