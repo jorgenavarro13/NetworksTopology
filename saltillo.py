@@ -42,12 +42,14 @@ class Saltillo:
         # Servers - VLAN 130 
         sSALs1 = net.addSwitch('sSALs1', failMode='standalone')  # Server switch (single-host)
         hSALdns1 = net.addHost('hSALdns1', ip='10.30.130.10/24', defaultRoute='via 10.30.130.254')
-        hSALweb1 = net.addHost('hSALweb1', ip='10.30.130.10/24', defaultRoute='via 10.30.130.254')
-        hSALftp1 = net.addHost('hSALftp1', ip='10.30.130.10/24', defaultRoute='via 10.30.130.254')
+        hSALweb1 = net.addHost('hSALweb1', ip='10.30.130.20/24', defaultRoute='via 10.30.130.254')
+        hSALftp1 = net.addHost('hSALftp1', ip='10.30.130.30/24', defaultRoute='via 10.30.130.254')
+        hSALdhcp1 = net.addHost('hSALdhcp1', ip='10.30.130.40/24', defaultRoute='via 10.30.130.254')
 
         net.addLink(hSALdns1, sSALs1, port1=0, port2=1)  # hSALdns1-eth0 ↔ sSALs1-eth1
         net.addLink(hSALweb1, sSALs1, port1=0, port2=2)  # hSALweb1-eth0 ↔ sSALs1-eth2    
         net.addLink(hSALftp1, sSALs1, port1=0, port2=3)  # hSALftp1-eth0 ↔ sSALs1-eth3
+        net.addLink(hSALdhcp1, sSALs1, port1=0, port2=4)  # hSALdhcp1-eth0 ↔ sSALs1-eth4
 
         # Distribution switches
         sSALd1 = net.addSwitch('sSALd1', failMode='standalone')  # Floor 1 & Lobby
@@ -79,7 +81,7 @@ class Saltillo:
         net.addLink(sSALc1, sSALd3)        # sSALc1-eth4  ↔ sSALd3-eth1
 
         # Core to server switch (VLAN 130)
-        net.addLink(sSALc1, sSALs1, port1=5, port2=0)  # sSALc1-eth5 ↔ sSALs1-eth0
+        net.addLink(sSALc1, sSALs1, port1=5, port2=5)  # sSALc1-eth5 ↔ sSALs1-eth0
 
         net.addLink(sSALd1, sSALl1)         # sSALd1-eth2  ↔ sSALl1-eth1
         net.addLink(sSALd1, sSALf11)       # sSALd1-eth3  ↔ sSALf11-eth1
@@ -108,9 +110,9 @@ class Saltillo:
 
         # Reception - VLAN 50 (lobby & floor 1 use DHCP; floors 2-3 static)
         #hSALlrec1  = net.addHost('hSALlrec1',  ip=None)
-        #hSALf1rec1 = net.addHost('hSALf1rec1', ip=None)
         hSALlrec1  = net.addHost('hSALlrec1', ip='10.30.50.10/27')
         hSALf1rec1 = net.addHost('hSALf1rec1',ip='10.30.50.11/27')
+        hSALf1rec2 = net.addHost('hSALf1rec2', ip=None)
         
         hSALf2rec1 = net.addHost('hSALf2rec1', ip='10.30.50.20/27')
         hSALf3rec1 = net.addHost('hSALf3rec1', ip='10.30.50.30/27')
@@ -119,12 +121,11 @@ class Saltillo:
         net.addLink(hSALf1rec1, sSALf11)   # hSALf1rec1-eth0 ↔ sSALf11-eth3
         net.addLink(hSALf2rec1, sSALf21)   # hSALf2rec1-eth0 ↔ sSALf21-eth3
         net.addLink(hSALf3rec1, sSALf31)   # hSALf3rec1-eth0 ↔ sSALf31-eth3
+        net.addLink(hSALf1rec2, sSALf13)   # hSALf1rec2-eth0 ↔ sSALf13-eth2 (additional reception host on floor 1)
 
         print("Saltillo site built successfully!")
 
     def config(self, net):
-        # Fix, sometimes it fails but its a temporal solution dhclient fstab bug: privateDirs=['/etc'] creates isolated /etc without fstab
-        #client.cmd('touch /etc/fstab')
         sSALc1  = net.get('sSALc1')
         sSALd1  = net.get('sSALd1')
         sSALd2  = net.get('sSALd2')
@@ -143,6 +144,11 @@ class Saltillo:
         hSALdns1 = net.get('hSALdns1')
         hSALweb1 = net.get('hSALweb1')
         hSALftp1 = net.get('hSALftp1')
+        hSALdhcp1 = net.get('hSALdhcp1')
+        
+
+        # Fix, sometimes it fails but its a temporal solution dhclient fstab bug: privateDirs=['/etc'] creates isolated /etc without fstab
+        sSALf33.cmd('touch /etc/fstab')
 
         # ── Gateway (WAN router) ──────────────────────────────────────
         self.gateway.setIP('10.30.99.1/30', intf='saltillo-eth0')
@@ -209,6 +215,7 @@ class Saltillo:
         sSALf11.cmd('ovs-vsctl set port sSALf11-eth3 tag=50')       # to hSALf1rec1
         sSALf12.cmd('ovs-vsctl set port sSALf12-eth1 trunks=20,50,130') # uplink
         sSALf13.cmd('ovs-vsctl set port sSALf13-eth1 trunks=20,50,130') # uplink
+        sSALf13.cmd('ovs-vsctl set port sSALf13-eth2 tag=50')   # to hSALf1rec2
 
         # ── Floor 2 access switches ───────────────────────────────────
         sSALf21.cmd('ovs-vsctl set port sSALf21-eth1 trunks=20,50,130') # uplink
@@ -232,31 +239,19 @@ class Saltillo:
         net.get('hSALf2rec1').setDefaultRoute('via 10.30.50.1')
         net.get('hSALf3rec1').setDefaultRoute('via 10.30.50.1')
 
-        # ── Server host ───────────────────────────────────────────────
-
-        # Point server's resolver at itself
-        #src_resolv = os.path.abspath('./saltillo/resolv.conf')
-        #hSALsrv1.cmd('umount /etc/resolv.conf 2>/dev/null; true')
-        #hSALsrv1.cmd('touch /etc/resolv.conf')
-        #hSALsrv1.cmd(f'mount --bind {src_resolv} /etc/resolv.conf')
-
-        # DNS + DHCP (dnsmasq)
-        #hSALsrv1.cmd('dnsmasq -d --conf-file=./saltillo/site.conf --pid-file=/tmp/dnsmasq-sal.pid &')
-
-        # Web server – serves saltillo/web/index.html on port 80
-        #web_root = os.path.abspath('./saltillo/web')
-        #hSALsrv1.cmd(f'python3 -m http.server 80 --directory {web_root} &')
-
-        # ── DHCP relay on core switch ─────────────────────────────────
-        # Listens on VLAN 20 and 50 SVIs, forwards requests to the server
-        #sSALc1.cmd('dhcrelay -4 -i salc1.v20 -i salc1.v50 10.30.130.1 &')
-
+        # ── Servers  ───────────────────────────────────────────────
+        hSALdhcp1.cmd('dnsmasq --conf-file=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.conf --pid-file=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.pid --dhcp-leasefile=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.leases --log-dhcp --log-facility=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.log &')
+        sSALc1.cmd('pkill dhcrelay 2>/dev/null')
+        sSALc1.cmd('dhcrelay -4 -iu salc1.v130 -id salc1.v50 10.30.130.40 &')
 
 
         # Cleanup
         #hSALsrv1.cmd('pkill -f "http.server" 2>/dev/null')
         #sSALc1.cmd('pkill dhcrelay 2>/dev/null')
+
         CLI(net)
+        sSALc1.cmd('pkill dhcrelay 2>/dev/null')
+        net.stop()
 
 
 def run():
@@ -265,6 +260,7 @@ def run():
     site.build(net)
     net.start()
     site.config(net)
+
 
 
 if __name__ == '__main__':
