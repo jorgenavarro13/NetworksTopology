@@ -92,8 +92,11 @@ class Saltillo:
         net.addLink(hSALf3eng1, sSALf31)   # hSALf3eng1-eth0 ↔ sSALf31-eth2
 
         # Reception - VLAN 50 (lobby & floor 1 use DHCP; floors 2-3 static)
-        hSALlrec1  = net.addHost('hSALlrec1',  ip=None)
-        hSALf1rec1 = net.addHost('hSALf1rec1', ip=None)
+        #hSALlrec1  = net.addHost('hSALlrec1',  ip=None)
+        #hSALf1rec1 = net.addHost('hSALf1rec1', ip=None)
+        hSALlrec1  = net.addHost('hSALlrec1', ip='10.30.50.10/27')
+        hSALf1rec1 = net.addHost('hSALf1rec1',ip='10.30.50.11/27')
+        
         hSALf2rec1 = net.addHost('hSALf2rec1', ip='10.30.50.20/27')
         hSALf3rec1 = net.addHost('hSALf3rec1', ip='10.30.50.30/27')
 
@@ -214,29 +217,27 @@ class Saltillo:
         hSALsrv1.setDefaultRoute('via 10.30.130.254')
 
         # Point server's resolver at itself
-        src_resolv = os.path.abspath('./saltillo/resolv.conf')
-        hSALsrv1.cmd('umount /etc/resolv.conf 2>/dev/null; true')
-        hSALsrv1.cmd('touch /etc/resolv.conf')
-        hSALsrv1.cmd(f'mount --bind {src_resolv} /etc/resolv.conf')
+        #src_resolv = os.path.abspath('./saltillo/resolv.conf')
+        #hSALsrv1.cmd('umount /etc/resolv.conf 2>/dev/null; true')
+        #hSALsrv1.cmd('touch /etc/resolv.conf')
+        #hSALsrv1.cmd(f'mount --bind {src_resolv} /etc/resolv.conf')
 
         # DNS + DHCP (dnsmasq)
-        hSALsrv1.cmd('dnsmasq -d --conf-file=./saltillo/site.conf --pid-file=/tmp/dnsmasq-sal.pid &')
+        #hSALsrv1.cmd('dnsmasq -d --conf-file=./saltillo/site.conf --pid-file=/tmp/dnsmasq-sal.pid &')
 
         # Web server – serves saltillo/web/index.html on port 80
-        web_root = os.path.abspath('./saltillo/web')
-        hSALsrv1.cmd(f'python3 -m http.server 80 --directory {web_root} &')
+        #web_root = os.path.abspath('./saltillo/web')
+        #hSALsrv1.cmd(f'python3 -m http.server 80 --directory {web_root} &')
 
         # ── DHCP relay on core switch ─────────────────────────────────
         # Listens on VLAN 20 and 50 SVIs, forwards requests to the server
-        sSALc1.cmd('dhcrelay -4 -i salc1.v20 -i salc1.v50 10.30.130.1 &')
+        #sSALc1.cmd('dhcrelay -4 -i salc1.v20 -i salc1.v50 10.30.130.1 &')
 
-        CLI(net)
+
 
         # Cleanup
-        hSALsrv1.cmd('kill $(cat /tmp/dnsmasq-sal.pid) 2>/dev/null')
-        hSALsrv1.cmd('pkill -f "http.server" 2>/dev/null')
-        sSALc1.cmd('pkill dhcrelay 2>/dev/null')
-        net.stop()
+        #hSALsrv1.cmd('pkill -f "http.server" 2>/dev/null')
+        #sSALc1.cmd('pkill dhcrelay 2>/dev/null')
 
 
 def run():
