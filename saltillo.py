@@ -1,4 +1,6 @@
 import os
+SITE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'saltillo')
+
 from mininet.net import Mininet
 from mininet.node import OVSSwitch
 from mininet.link import TCLink
@@ -154,7 +156,9 @@ class Saltillo:
 
         # ── Gateway (WAN router) ──────────────────────────────────────
         self.gateway.setIP('10.30.99.1/30', intf='saltillo-eth0')
-        self.gateway.cmd('ip route add 10.30.0.0/16 via 10.30.99.2')
+        self.gateway.cmd('ip route add 10.30.20.0/25  via 10.30.99.2')
+        self.gateway.cmd('ip route add 10.30.50.0/27  via 10.30.99.2')
+        self.gateway.cmd('ip route add 10.30.130.0/24 via 10.30.99.2')
 
         # ── Core switch: SVIs ─────────────────────────────────────────
         # VLAN 130 servers
@@ -164,10 +168,6 @@ class Saltillo:
         # VLAN 99 – p2p uplink to gateway
         sSALc1.cmd('ovs-vsctl add-port sSALc1 salc1.v99  tag=99  -- set interface salc1.v99  type=internal')
         sSALc1.cmd('ip addr add 10.30.99.2/30   dev salc1.v99  && ip link set salc1.v99  up')
-
-        # VLAN 130 – servers
-        sSALc1.cmd('ovs-vsctl add-port sSALc1 salc1.v130 tag=130 -- set interface salc1.v130 type=internal')
-        sSALc1.cmd('ip addr add 10.30.130.254/24 dev salc1.v130 && ip link set salc1.v130 up')
 
         # VLAN 20 – engineering
         sSALc1.cmd('ovs-vsctl add-port sSALc1 salc1.v20  tag=20  -- set interface salc1.v20  type=internal')
@@ -242,21 +242,13 @@ class Saltillo:
         net.get('hSALf3rec1').setDefaultRoute('via 10.30.50.1')
 
         # ── Servers  ───────────────────────────────────────────────
-        hSALdhcp1.cmd('dnsmasq --conf-file=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.conf --pid-file=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.pid --dhcp-leasefile=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.leases --log-dhcp --log-facility=/home/jorge/Downloads/NetworksTopology/saltillo/SAL_dhcp.log &')
+        hSALdhcp1.cmd(f'dnsmasq --conf-file={SITE_DIR}/SAL_dhcp.conf --addn-hosts={SITE_DIR}/records.txt --pid-file={SITE_DIR}/SAL_dhcp.pid --dhcp-leasefile={SITE_DIR}/SAL_dhcp.leases --log-dhcp --log-facility={SITE_DIR}/SAL_dhcp.log &')
         sSALc1.cmd('pkill dhcrelay 2>/dev/null')
         sSALc1.cmd('dhcrelay -4 -iu salc1.v130 -id salc1.v50 10.30.130.40 &')
-        
-        hSALweb1.cmd('python3 -m http.server 80 --directory /home/jorge/Downloads/NetworksTopology/saltillo/web &')
 
-        hSALftp1.cmd(
-            'cd /home/jorge/Downloads/NetworksTopology/saltillo/ftp && '
-            'python3 -m pyftpdlib -p 21 -w -u admin -P secret123 &'
-        )
+        hSALweb1.cmd(f'python3 -m http.server 80 --directory {SITE_DIR}/web &')
 
-        # Cleanup
-        CLI(net)
-        sSALc1.cmd('pkill dhcrelay 2>/dev/null')
-        net.stop()
+        hSALftp1.cmd(f'cd {SITE_DIR}/ftp && python3 -m pyftpdlib -p 21 -w -u admin -P secret123 &')
 
 def run():
     net = Mininet(controller=None, switch=OVSSwitch, link=TCLink, autoSetMacs=True)
@@ -264,6 +256,9 @@ def run():
     site.build(net)
     net.start()
     site.config(net)
+    CLI(net)
+    net.get('sSALc1').cmd('pkill dhcrelay 2>/dev/null')
+    net.stop()
 
 
 
