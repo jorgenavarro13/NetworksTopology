@@ -247,8 +247,13 @@ class Saltillo:
         sSALc1.cmd('dhcrelay -4 -iu salc1.v130 -id salc1.v50 10.30.130.40 &')
         
         hSALweb1.cmd('python3 -m http.server 80 --directory /home/jorge/Downloads/NetworksTopology/saltillo/web &')
-        # Cleanup
 
+        hSALftp1.cmd(
+            'cd /home/jorge/Downloads/NetworksTopology/saltillo/ftp && '
+            'python3 -m pyftpdlib -p 21 -w -u admin -P secret123 &'
+        )
+
+        # Cleanup
         CLI(net)
         sSALc1.cmd('pkill dhcrelay 2>/dev/null')
         net.stop()
