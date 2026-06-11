@@ -35,7 +35,19 @@ class Saltillo:
 
     def build(self, net):
         self.gateway = net.addHost('saltillo', cls=Router)
+
+        # Core switch
         sSALc1 = net.addSwitch('sSALc1', cls=SwitchL3, failMode='standalone')
+
+        # Servers - VLAN 130 
+        sSALs1 = net.addSwitch('sSALs1', failMode='standalone')  # Server switch (single-host)
+        hSALdns1 = net.addHost('hSALdns1', ip='10.30.130.10/24', defaultRoute='via 10.30.130.254')
+        hSALweb1 = net.addHost('hSALweb1', ip='10.30.130.10/24', defaultRoute='via 10.30.130.254')
+        hSALftp1 = net.addHost('hSALftp1', ip='10.30.130.10/24', defaultRoute='via 10.30.130.254')
+
+        net.addLink(hSALdns1, sSALs1, port1=0, port2=1)  # hSALdns1-eth0 ↔ sSALs1-eth1
+        net.addLink(hSALweb1, sSALs1, port1=0, port2=2)  # hSALweb1-eth0 ↔ sSALs1-eth2    
+        net.addLink(hSALftp1, sSALs1, port1=0, port2=3)  # hSALftp1-eth0 ↔ sSALs1-eth3
 
         # Distribution switches
         sSALd1 = net.addSwitch('sSALd1', failMode='standalone')  # Floor 1 & Lobby
@@ -65,6 +77,9 @@ class Saltillo:
         net.addLink(sSALc1, sSALd1)        # sSALc1-eth2  ↔ sSALd1-eth1
         net.addLink(sSALc1, sSALd2)        # sSALc1-eth3  ↔ sSALd2-eth1
         net.addLink(sSALc1, sSALd3)        # sSALc1-eth4  ↔ sSALd3-eth1
+
+        # Core to server switch (VLAN 130)
+        net.addLink(sSALc1, sSALs1, port1=5, port2=0)  # sSALc1-eth5 ↔ sSALs1-eth0
 
         net.addLink(sSALd1, sSALl1)         # sSALd1-eth2  ↔ sSALl1-eth1
         net.addLink(sSALd1, sSALf11)       # sSALd1-eth3  ↔ sSALf11-eth1
@@ -105,13 +120,11 @@ class Saltillo:
         net.addLink(hSALf2rec1, sSALf21)   # hSALf2rec1-eth0 ↔ sSALf21-eth3
         net.addLink(hSALf3rec1, sSALf31)   # hSALf3rec1-eth0 ↔ sSALf31-eth3
 
-        # Server - VLAN 130 (DNS/DHCP + web)
-        hSALsrv1 = net.addHost('hSALsrv1', ip=None)
-        net.addLink(sSALc1, hSALsrv1)      # sSALc1-eth5 ↔ hSALsrv1-eth0
-
         print("Saltillo site built successfully!")
 
     def config(self, net):
+        # Fix, sometimes it fails but its a temporal solution dhclient fstab bug: privateDirs=['/etc'] creates isolated /etc without fstab
+        #client.cmd('touch /etc/fstab')
         sSALc1  = net.get('sSALc1')
         sSALd1  = net.get('sSALd1')
         sSALd2  = net.get('sSALd2')
@@ -127,13 +140,19 @@ class Saltillo:
         sSALf31 = net.get('sSALf31')
         sSALf32 = net.get('sSALf32')
         sSALf33 = net.get('sSALf33')
-        hSALsrv1 = net.get('hSALsrv1')
+        hSALdns1 = net.get('hSALdns1')
+        hSALweb1 = net.get('hSALweb1')
+        hSALftp1 = net.get('hSALftp1')
 
         # ── Gateway (WAN router) ──────────────────────────────────────
         self.gateway.setIP('10.30.99.1/30', intf='saltillo-eth0')
         self.gateway.cmd('ip route add 10.30.0.0/16 via 10.30.99.2')
 
         # ── Core switch: SVIs ─────────────────────────────────────────
+        # VLAN 130 servers
+        sSALc1.cmd('ovs-vsctl add-port sSALc1 salc1.v130 tag=130 -- set interface salc1.v130 type=internal')
+        sSALc1.cmd('ip addr add 10.30.130.254/24 dev salc1.v130 && ip link set salc1.v130 up')
+
         # VLAN 99 – p2p uplink to gateway
         sSALc1.cmd('ovs-vsctl add-port sSALc1 salc1.v99  tag=99  -- set interface salc1.v99  type=internal')
         sSALc1.cmd('ip addr add 10.30.99.2/30   dev salc1.v99  && ip link set salc1.v99  up')
@@ -150,60 +169,61 @@ class Saltillo:
         sSALc1.cmd('ovs-vsctl add-port sSALc1 salc1.v50  tag=50  -- set interface salc1.v50  type=internal')
         sSALc1.cmd('ip addr add 10.30.50.1/27   dev salc1.v50  && ip link set salc1.v50  up')
 
+
         sSALc1.cmd('ip route add default via 10.30.99.1')
 
         # ── Core switch: port assignments ─────────────────────────────
         sSALc1.cmd('ovs-vsctl set port sSALc1-eth1 tag=99')         # uplink to gateway
-        sSALc1.cmd('ovs-vsctl set port sSALc1-eth2 trunks=20,50')   # to sSALd1
+        sSALc1.cmd('ovs-vsctl set port sSALc1-eth2 trunks=20,50,130')   # to sSALd1
         sSALc1.cmd('ovs-vsctl set port sSALc1-eth3 trunks=20,50')   # to sSALd2
         sSALc1.cmd('ovs-vsctl set port sSALc1-eth4 trunks=20,50')   # to sSALd3
         sSALc1.cmd('ovs-vsctl set port sSALc1-eth5 tag=130')        # to server
 
         # ── Distribution 1 – Floor 1 & Lobby ─────────────────────────
-        sSALd1.cmd('ovs-vsctl set port sSALd1-eth1 trunks=20,50')   # uplink
+        sSALd1.cmd('ovs-vsctl set port sSALd1-eth1 trunks=20,50,130')   # uplink
         sSALd1.cmd('ovs-vsctl set port sSALd1-eth2 trunks=50')      # to sSALl1  (lobby-only)
-        sSALd1.cmd('ovs-vsctl set port sSALd1-eth3 trunks=20,50')   # to sSALf11
-        sSALd1.cmd('ovs-vsctl set port sSALd1-eth4 trunks=20,50')   # to sSALf12
-        sSALd1.cmd('ovs-vsctl set port sSALd1-eth5 trunks=20,50')   # to sSALf13
+        sSALd1.cmd('ovs-vsctl set port sSALd1-eth3 trunks=20,50,130')   # to sSALf11
+        sSALd1.cmd('ovs-vsctl set port sSALd1-eth4 trunks=20,50,130')   # to sSALf12
+        sSALd1.cmd('ovs-vsctl set port sSALd1-eth5 trunks=20,50,130')   # to sSALf13
 
         # ── Distribution 2 – Floor 2 ──────────────────────────────────
-        sSALd2.cmd('ovs-vsctl set port sSALd2-eth1 trunks=20,50')   # uplink
-        sSALd2.cmd('ovs-vsctl set port sSALd2-eth2 trunks=20,50')   # to sSALf21
-        sSALd2.cmd('ovs-vsctl set port sSALd2-eth3 trunks=20,50')   # to sSALf22
-        sSALd2.cmd('ovs-vsctl set port sSALd2-eth4 trunks=20,50')   # to sSALf23
-        sSALd2.cmd('ovs-vsctl set port sSALd2-eth5 trunks=20,50')   # to sSALf24
+        sSALd2.cmd('ovs-vsctl set port sSALd2-eth1 trunks=20,50,130')   # uplink
+        sSALd2.cmd('ovs-vsctl set port sSALd2-eth2 trunks=20,50,130')   # to sSALf21
+        sSALd2.cmd('ovs-vsctl set port sSALd2-eth3 trunks=20,50,130')   # to sSALf22
+        sSALd2.cmd('ovs-vsctl set port sSALd2-eth4 trunks=20,50,130')   # to sSALf23
+        sSALd2.cmd('ovs-vsctl set port sSALd2-eth5 trunks=20,50,130')   # to sSALf24
 
         # ── Distribution 3 – Floor 3 ──────────────────────────────────
-        sSALd3.cmd('ovs-vsctl set port sSALd3-eth1 trunks=20,50')   # uplink
-        sSALd3.cmd('ovs-vsctl set port sSALd3-eth2 trunks=20,50')   # to sSALf31
-        sSALd3.cmd('ovs-vsctl set port sSALd3-eth3 trunks=20,50')   # to sSALf32
-        sSALd3.cmd('ovs-vsctl set port sSALd3-eth4 trunks=20,50')   # to sSALf33
+        sSALd3.cmd('ovs-vsctl set port sSALd3-eth1 trunks=20,50,130')   # uplink
+        sSALd3.cmd('ovs-vsctl set port sSALd3-eth2 trunks=20,50,130')   # to sSALf31
+        sSALd3.cmd('ovs-vsctl set port sSALd3-eth3 trunks=20,50,130')   # to sSALf32
+        sSALd3.cmd('ovs-vsctl set port sSALd3-eth4 trunks=20,50,130')   # to sSALf33
 
         # ── Lobby switch ──────────────────────────────────────────────
         sSALl1.cmd('ovs-vsctl set port sSALl1-eth1 trunks=50')        # uplink
         sSALl1.cmd('ovs-vsctl set port sSALl1-eth2 tag=50')           # to hSALlrec1
 
         # ── Floor 1 access switches ───────────────────────────────────
-        sSALf11.cmd('ovs-vsctl set port sSALf11-eth1 trunks=20,50') # uplink
+        sSALf11.cmd('ovs-vsctl set port sSALf11-eth1 trunks=20,50,130') # uplink
         sSALf11.cmd('ovs-vsctl set port sSALf11-eth2 tag=20')       # to hSALf1eng1
         sSALf11.cmd('ovs-vsctl set port sSALf11-eth3 tag=50')       # to hSALf1rec1
-        sSALf12.cmd('ovs-vsctl set port sSALf12-eth1 trunks=20,50') # uplink
-        sSALf13.cmd('ovs-vsctl set port sSALf13-eth1 trunks=20,50') # uplink
+        sSALf12.cmd('ovs-vsctl set port sSALf12-eth1 trunks=20,50,130') # uplink
+        sSALf13.cmd('ovs-vsctl set port sSALf13-eth1 trunks=20,50,130') # uplink
 
         # ── Floor 2 access switches ───────────────────────────────────
-        sSALf21.cmd('ovs-vsctl set port sSALf21-eth1 trunks=20,50') # uplink
+        sSALf21.cmd('ovs-vsctl set port sSALf21-eth1 trunks=20,50,130') # uplink
         sSALf21.cmd('ovs-vsctl set port sSALf21-eth2 tag=20')       # to hSALf2eng1
         sSALf21.cmd('ovs-vsctl set port sSALf21-eth3 tag=50')       # to hSALf2rec1
-        sSALf22.cmd('ovs-vsctl set port sSALf22-eth1 trunks=20,50') # uplink
-        sSALf23.cmd('ovs-vsctl set port sSALf23-eth1 trunks=20,50') # uplink
-        sSALf24.cmd('ovs-vsctl set port sSALf24-eth1 trunks=20,50') # uplink
+        sSALf22.cmd('ovs-vsctl set port sSALf22-eth1 trunks=20,50,130') # uplink
+        sSALf23.cmd('ovs-vsctl set port sSALf23-eth1 trunks=20,50,130') # uplink
+        sSALf24.cmd('ovs-vsctl set port sSALf24-eth1 trunks=20,50,130') # uplink
 
         # ── Floor 3 access switches ───────────────────────────────────
-        sSALf31.cmd('ovs-vsctl set port sSALf31-eth1 trunks=20,50') # uplink
+        sSALf31.cmd('ovs-vsctl set port sSALf31-eth1 trunks=20,50,130') # uplink
         sSALf31.cmd('ovs-vsctl set port sSALf31-eth2 tag=20')       # to hSALf3eng1
         sSALf31.cmd('ovs-vsctl set port sSALf31-eth3 tag=50')       # to hSALf3rec1
-        sSALf32.cmd('ovs-vsctl set port sSALf32-eth1 trunks=20,50') # uplink
-        sSALf33.cmd('ovs-vsctl set port sSALf33-eth1 trunks=20,50') # uplink
+        sSALf32.cmd('ovs-vsctl set port sSALf32-eth1 trunks=20,50,130') # uplink
+        sSALf33.cmd('ovs-vsctl set port sSALf33-eth1 trunks=20,50,130') # uplink
 
         # ── Static host default routes ────────────────────────────────
         net.get('hSALf1eng1').setDefaultRoute('via 10.30.20.1')
@@ -213,8 +233,6 @@ class Saltillo:
         net.get('hSALf3rec1').setDefaultRoute('via 10.30.50.1')
 
         # ── Server host ───────────────────────────────────────────────
-        hSALsrv1.setIP('10.30.130.1/24', intf='hSALsrv1-eth0')
-        hSALsrv1.setDefaultRoute('via 10.30.130.254')
 
         # Point server's resolver at itself
         #src_resolv = os.path.abspath('./saltillo/resolv.conf')
@@ -238,6 +256,7 @@ class Saltillo:
         # Cleanup
         #hSALsrv1.cmd('pkill -f "http.server" 2>/dev/null')
         #sSALc1.cmd('pkill dhcrelay 2>/dev/null')
+        CLI(net)
 
 
 def run():
@@ -246,6 +265,7 @@ def run():
     site.build(net)
     net.start()
     site.config(net)
+
 
 if __name__ == '__main__':
     setLogLevel('info')
