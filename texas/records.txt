@@ -1,0 +1,3 @@
+10.40.130.10    dns.agco.texas
+10.40.130.20    web.agco.texas
+10.40.130.30    ftp.agco.texas

@@ -120,9 +120,9 @@ class Saltillo:
 
         # Floor 1 – sSALf12 (Cameras + VoIP)
         hSALf1cam1  = net.addHost('hSALf1cam1',  ip='10.30.100.10/26')
-        hSALf1voip1 = net.addHost('hSALf1voip1', ip='10.30.120.10/26')
+        hSALf1voi1 = net.addHost('hSALf1voi1', ip='10.30.120.10/26')
         net.addLink(hSALf1cam1,  sSALf12)  # sSALf12-eth2
-        net.addLink(hSALf1voip1, sSALf12)  # sSALf12-eth3
+        net.addLink(hSALf1voi1, sSALf12)  # sSALf12-eth3
 
         # Floor 1 – sSALf13 (Reception)
         hSALf1rec1 = net.addHost('hSALf1rec1', ip='10.30.50.11/27')
@@ -136,13 +136,13 @@ class Saltillo:
 
         # Floor 2 – sSALf22 (Cameras + VoIP)
         hSALf2cam1  = net.addHost('hSALf2cam1',  ip='10.30.100.20/26')
-        hSALf2voip1 = net.addHost('hSALf2voip1', ip='10.30.120.20/26')
+        hSALf2voi1 = net.addHost('hSALf2voi1', ip='10.30.120.20/26')
         net.addLink(hSALf2cam1,  sSALf22)  # sSALf22-eth2
-        net.addLink(hSALf2voip1, sSALf22)  # sSALf22-eth3
+        net.addLink(hSALf2voi1, sSALf22)  # sSALf22-eth3
 
         # Floor 2 – sSALf23 (Meeting Rooms)
-        hSALf2meet1 = net.addHost('hSALf2meet1', ip='10.30.70.10/27')
-        net.addLink(hSALf2meet1, sSALf23)  # sSALf23-eth2
+        hSALf2mr1 = net.addHost('hSALf2mr1', ip='10.30.70.10/27')
+        net.addLink(hSALf2mr1, sSALf23)  # sSALf23-eth2
 
         # Floor 3 – sSALf31 (Executives + Engineering)
         hSALf3exe1 = net.addHost('hSALf3exe1', ip='10.30.10.2/28')
@@ -155,8 +155,8 @@ class Saltillo:
         net.addLink(hSALf3cam1, sSALf32)   # sSALf32-eth2
 
         # Floor 3 – sSALf33 (VoIP)
-        hSALf3voip1 = net.addHost('hSALf3voip1', ip='10.30.120.30/26')
-        net.addLink(hSALf3voip1, sSALf33)  # sSALf33-eth2
+        hSALf3voi1 = net.addHost('hSALf3voi1', ip='10.30.120.30/26')
+        net.addLink(hSALf3voi1, sSALf33)  # sSALf33-eth2
 
         print("Saltillo site built successfully!")
 
@@ -249,7 +249,7 @@ class Saltillo:
 
         sSALf12.cmd('ovs-vsctl set port sSALf12-eth1 trunks=100,120')
         sSALf12.cmd('ovs-vsctl set port sSALf12-eth2 tag=100') # hSALf1cam1
-        sSALf12.cmd('ovs-vsctl set port sSALf12-eth3 tag=120') # hSALf1voip1
+        sSALf12.cmd('ovs-vsctl set port sSALf12-eth3 tag=120') # hSALf1voi1
 
         sSALf13.cmd('ovs-vsctl set port sSALf13-eth1 trunks=50')
         sSALf13.cmd('ovs-vsctl set port sSALf13-eth2 tag=50')  # hSALf1rec1
@@ -261,10 +261,10 @@ class Saltillo:
 
         sSALf22.cmd('ovs-vsctl set port sSALf22-eth1 trunks=100,120')
         sSALf22.cmd('ovs-vsctl set port sSALf22-eth2 tag=100') # hSALf2cam1
-        sSALf22.cmd('ovs-vsctl set port sSALf22-eth3 tag=120') # hSALf2voip1
+        sSALf22.cmd('ovs-vsctl set port sSALf22-eth3 tag=120') # hSALf2voi1
 
         sSALf23.cmd('ovs-vsctl set port sSALf23-eth1 trunks=70')
-        sSALf23.cmd('ovs-vsctl set port sSALf23-eth2 tag=70')  # hSALf2meet1
+        sSALf23.cmd('ovs-vsctl set port sSALf23-eth2 tag=70')  # hSALf2mr1
 
         sSALf24.cmd('ovs-vsctl set port sSALf24-eth1 trunks=70')  # spare
 
@@ -277,7 +277,7 @@ class Saltillo:
         sSALf32.cmd('ovs-vsctl set port sSALf32-eth2 tag=100') # hSALf3cam1
 
         sSALf33.cmd('ovs-vsctl set port sSALf33-eth1 trunks=120')
-        sSALf33.cmd('ovs-vsctl set port sSALf33-eth2 tag=120') # hSALf3voip1
+        sSALf33.cmd('ovs-vsctl set port sSALf33-eth2 tag=120') # hSALf3voi1
 
         # ── Static host default routes ────────────────────────────────
         net.get('hSALlrec1').setDefaultRoute('via 10.30.50.1')
@@ -285,76 +285,82 @@ class Saltillo:
         net.get('hSALf1iot1').setDefaultRoute('via 10.30.30.1')
         net.get('hSALf1prt1').setDefaultRoute('via 10.30.60.1')
         net.get('hSALf1cam1').setDefaultRoute('via 10.30.100.1')
-        net.get('hSALf1voip1').setDefaultRoute('via 10.30.120.1')
+        net.get('hSALf1voi1').setDefaultRoute('via 10.30.120.1')
         net.get('hSALf1rec1').setDefaultRoute('via 10.30.50.1')
         net.get('hSALf2eng1').setDefaultRoute('via 10.30.20.1')
         net.get('hSALf2hr1').setDefaultRoute('via 10.30.40.1')
         net.get('hSALf2cam1').setDefaultRoute('via 10.30.100.1')
-        net.get('hSALf2voip1').setDefaultRoute('via 10.30.120.1')
-        net.get('hSALf2meet1').setDefaultRoute('via 10.30.70.1')
+        net.get('hSALf2voi1').setDefaultRoute('via 10.30.120.1')
+        net.get('hSALf2mr1').setDefaultRoute('via 10.30.70.1')
         net.get('hSALf3exe1').setDefaultRoute('via 10.30.10.1')
         net.get('hSALf3eng1').setDefaultRoute('via 10.30.20.1')
         net.get('hSALf3cam1').setDefaultRoute('via 10.30.100.1')
-        net.get('hSALf3voip1').setDefaultRoute('via 10.30.120.1')
+        net.get('hSALf3voi1').setDefaultRoute('via 10.30.120.1')
 
         # ── Services ──────────────────────────────────────────────────
+        hSALdhcp1.cmd(f'rm -f {SITE_DIR}/SAL_dhcp.pid {SITE_DIR}/SAL_dhcp.leases {SITE_DIR}/SAL_dhcp.log')
         hSALdhcp1.cmd(f'dnsmasq --conf-file={SITE_DIR}/SAL_dhcp.conf --addn-hosts={SITE_DIR}/records.txt --pid-file={SITE_DIR}/SAL_dhcp.pid --dhcp-leasefile={SITE_DIR}/SAL_dhcp.leases --log-dhcp --log-facility={SITE_DIR}/SAL_dhcp.log &')
         sSALc1.cmd('pkill dhcrelay 2>/dev/null')
-        sSALc1.cmd('dhcrelay -4 -iu salc1.v130 -id salc1.v50 -id salc1.v110 10.30.130.5 &')
+        sSALc1.cmd('dhcrelay -4 -i salc1.v50 -i salc1.v110 10.30.130.5 &')
 
         hSALweb1.cmd(f'python3 -m http.server 80 --directory {SITE_DIR}/web &')
         hSALftp1.cmd(f'cd {SITE_DIR}/ftp && python3 -m pyftpdlib -p 21 -w -u admin -P secret123 &')
 
-        # ── Inter-VLAN access policy (iptables on sSALc1) ─────────────
-        c = sSALc1.cmd
-        c('iptables -F FORWARD')
-        c('iptables -P FORWARD ACCEPT')
+        sSALc1.cmd(f'sed -i "/agco.saltillo/d" /etc/hosts && cat {SITE_DIR}/records.txt >> /etc/hosts')
 
-        # Always allow return traffic for established connections
-        c('iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT')
+        # ── Inter-VLAN access policy (iptables on sSALc1) ─────────────
+        # All OVSSwitch nodes share the root namespace, so each site uses
+        # its own chain to avoid flushing rules set by other sites.
+        c = sSALc1.cmd
+        c('iptables -N SAL_FWD 2>/dev/null; iptables -F SAL_FWD')
+        c('iptables -C FORWARD -j SAL_FWD 2>/dev/null || iptables -A FORWARD -j SAL_FWD')
+
+        c('iptables -A SAL_FWD -m state --state ESTABLISHED,RELATED -j ACCEPT')
 
         # Executives (10): no restriction — default ACCEPT covers them
 
         # Engineering (20): ↔ Engineering + IoT + Servers only
-        c('iptables -A FORWARD -s 10.30.20.0/25 -d 10.30.20.0/25  -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.20.0/25 -d 10.30.30.0/24  -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.20.0/25 -d 10.30.130.0/27 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.20.0/25 -j REJECT --reject-with icmp-net-prohibited')
+        c('iptables -A SAL_FWD -s 10.30.20.0/25 -d 10.30.20.0/25  -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.20.0/25 -d 10.30.30.0/24  -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.20.0/25 -d 10.30.130.0/27 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.20.0/25 -d 10.10.20.0/23  -j ACCEPT')  # → Illinois Eng
+        c('iptables -A SAL_FWD -s 10.30.20.0/25 -d 10.20.20.0/23  -j ACCEPT')  # → Monterrey Eng
+        c('iptables -A SAL_FWD -s 10.30.20.0/25 -j REJECT --reject-with icmp-net-prohibited')
 
         # IoT (30): ↔ IoT + Engineering + Servers only
-        c('iptables -A FORWARD -s 10.30.30.0/24 -d 10.30.30.0/24  -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.30.0/24 -d 10.30.20.0/25  -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.30.0/24 -d 10.30.130.0/27 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.30.0/24 -j REJECT --reject-with icmp-net-prohibited')
+        c('iptables -A SAL_FWD -s 10.30.30.0/24 -d 10.30.30.0/24  -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.30.0/24 -d 10.30.20.0/25  -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.30.0/24 -d 10.30.130.0/27 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.30.0/24 -j REJECT --reject-with icmp-net-prohibited')
 
         # HR (40): ↔ HR + Executives + Servers only
-        c('iptables -A FORWARD -s 10.30.40.0/27 -d 10.30.40.0/27  -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.40.0/27 -d 10.30.10.0/28  -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.40.0/27 -d 10.30.130.0/27 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.40.0/27 -j REJECT --reject-with icmp-net-prohibited')
+        c('iptables -A SAL_FWD -s 10.30.40.0/27 -d 10.30.40.0/27  -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.40.0/27 -d 10.30.10.0/28  -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.40.0/27 -d 10.30.130.0/27 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.40.0/27 -j REJECT --reject-with icmp-net-prohibited')
 
         # Reception (50): ↔ Reception + VoIP + Cameras + Servers only
-        c('iptables -A FORWARD -s 10.30.50.0/27 -d 10.30.50.0/27  -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.50.0/27 -d 10.30.120.0/26 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.50.0/27 -d 10.30.100.0/26 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.50.0/27 -d 10.30.130.0/27 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.50.0/27 -j REJECT --reject-with icmp-net-prohibited')
+        c('iptables -A SAL_FWD -s 10.30.50.0/27 -d 10.30.50.0/27  -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.50.0/27 -d 10.30.120.0/26 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.50.0/27 -d 10.30.100.0/26 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.50.0/27 -d 10.30.130.0/27 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.50.0/27 -j REJECT --reject-with icmp-net-prohibited')
 
         # Cameras (100): symmetric with Reception
-        c('iptables -A FORWARD -s 10.30.100.0/26 -d 10.30.100.0/26 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.100.0/26 -d 10.30.50.0/27  -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.100.0/26 -d 10.30.130.0/27 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.100.0/26 -j REJECT --reject-with icmp-net-prohibited')
+        c('iptables -A SAL_FWD -s 10.30.100.0/26 -d 10.30.100.0/26 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.100.0/26 -d 10.30.50.0/27  -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.100.0/26 -d 10.30.130.0/27 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.100.0/26 -j REJECT --reject-with icmp-net-prohibited')
 
         # VoIP (120): symmetric with Reception
-        c('iptables -A FORWARD -s 10.30.120.0/26 -d 10.30.120.0/26 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.120.0/26 -d 10.30.50.0/27  -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.120.0/26 -d 10.30.130.0/27 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.120.0/26 -j REJECT --reject-with icmp-net-prohibited')
+        c('iptables -A SAL_FWD -s 10.30.120.0/26 -d 10.30.120.0/26 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.120.0/26 -d 10.30.50.0/27  -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.120.0/26 -d 10.30.130.0/27 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.120.0/26 -j REJECT --reject-with icmp-net-prohibited')
 
         # Guests (110): TCP/80 to servers only — DROP (no ICMP response, fully dark)
-        c('iptables -A FORWARD -s 10.30.110.0/28 -d 10.30.130.0/27 -p tcp --dport 80 -j ACCEPT')
-        c('iptables -A FORWARD -s 10.30.110.0/28 -j DROP')
+        c('iptables -A SAL_FWD -s 10.30.110.0/28 -d 10.30.130.0/27 -p tcp --dport 80 -j ACCEPT')
+        c('iptables -A SAL_FWD -s 10.30.110.0/28 -j DROP')
 
 
 def run():
@@ -365,6 +371,7 @@ def run():
     site.config(net)
     CLI(net)
     net.get('sSALc1').cmd('pkill dhcrelay 2>/dev/null')
+    net.get('sSALc1').cmd('sed -i "/agco.saltillo/d" /etc/hosts')
     net.stop()
 
 

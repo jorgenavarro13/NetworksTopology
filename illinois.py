@@ -1,3 +1,6 @@
+import os
+SITE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'illinois')
+
 from base_nodes import Router, SwitchL3
 
 from mininet.net import Mininet
@@ -235,10 +238,17 @@ class Illinois:
         net.addLink(ihf7voip1, s36)
 
         ## Servers - VLAN 130
-        ihf1sr1 = net.addHost('ihf1sr1', ip='10.10.130.10/26')
-        ihf1sr2 = net.addHost('ihf1sr2', ip='10.10.130.50/26')
-        net.addLink(ihf1sr1, s10)
-        net.addLink(ihf1sr2, s11)
+        iSRVs1   = net.addSwitch('iSRVs1', failMode='standalone')
+        ihf1dns1  = net.addHost('ihf1dns1',  ip='10.10.130.10/24', defaultRoute='via 10.10.130.254')
+        ihf1web1  = net.addHost('ihf1web1',  ip='10.10.130.20/24', defaultRoute='via 10.10.130.254')
+        ihf1ftp1  = net.addHost('ihf1ftp1',  ip='10.10.130.30/24', defaultRoute='via 10.10.130.254')
+        ihf1dhcp1 = net.addHost('ihf1dhcp1', ip='10.10.130.40/24', defaultRoute='via 10.10.130.254')
+
+        net.addLink(s1,        iSRVs1)   # s1-eth9     ↔ iSRVs1-eth1
+        net.addLink(ihf1dns1,  iSRVs1)   # ihf1dns1-eth0  ↔ iSRVs1-eth2
+        net.addLink(ihf1web1,  iSRVs1)   # ihf1web1-eth0  ↔ iSRVs1-eth3
+        net.addLink(ihf1ftp1,  iSRVs1)   # ihf1ftp1-eth0  ↔ iSRVs1-eth4
+        net.addLink(ihf1dhcp1, iSRVs1)   # ihf1dhcp1-eth0 ↔ iSRVs1-eth5
         
         print("Illinois site built successfully!")
 
@@ -345,7 +355,7 @@ class Illinois:
 
         # VLAN 130 – Servers
         s1.cmd('ovs-vsctl add-port s1 s1.v130 tag=130 -- set interface s1.v130 type=internal')
-        s1.cmd('ip addr add 10.10.130.254/26 dev s1.v130 && ip link set s1.v130 up')
+        s1.cmd('ip addr add 10.10.130.254/24 dev s1.v130 && ip link set s1.v130 up')
 
         # Default route hacia el gateway WAN
         s1.cmd('ip route add default via 10.10.99.1')
@@ -362,12 +372,13 @@ class Illinois:
         s1.cmd('ovs-vsctl set port s1-eth6 trunks=20,50,100,120')
         s1.cmd('ovs-vsctl set port s1-eth7 trunks=40,50,60,70,100,110,120')
         s1.cmd('ovs-vsctl set port s1-eth8 trunks=10,50,60,70,100,120')
+        s1.cmd('ovs-vsctl set port s1-eth9 tag=130')                    # to iSRVs1
 
         # ── Distribution 1 – Floor 1 ──────────────────────────────────
-        s2.cmd('ovs-vsctl set port s2-eth1 trunks=50,60,70,100,110,120,130')  # uplink
+        s2.cmd('ovs-vsctl set port s2-eth1 trunks=50,60,70,100,110,120')   # uplink
         s2.cmd('ovs-vsctl set port s2-eth2 trunks=50,110')                    # to s9
-        s2.cmd('ovs-vsctl set port s2-eth3 trunks=110,130')                   # to s10
-        s2.cmd('ovs-vsctl set port s2-eth4 trunks=60,70,130')                 # to s11
+        s2.cmd('ovs-vsctl set port s2-eth3 trunks=110')                       # to s10
+        s2.cmd('ovs-vsctl set port s2-eth4 trunks=60,70')                     # to s11
         s2.cmd('ovs-vsctl set port s2-eth5 trunks=100,120')                   # to s12
 
         # ── Floor 1 access switches ───────────────────────────────────
@@ -377,15 +388,13 @@ class Illinois:
         s9.cmd('ovs-vsctl set port s9-eth3 tag=110')    # ihf1gs1
 
         # s10
-        s10.cmd('ovs-vsctl set port s10-eth1 trunks=110,130')
+        s10.cmd('ovs-vsctl set port s10-eth1 trunks=110')
         s10.cmd('ovs-vsctl set port s10-eth2 tag=110')  # ihf1gs2
-        s10.cmd('ovs-vsctl set port s10-eth3 tag=130')  # ihf1sr1
 
         # s11
-        s11.cmd('ovs-vsctl set port s11-eth1 trunks=60,70,130')
+        s11.cmd('ovs-vsctl set port s11-eth1 trunks=60,70')
         s11.cmd('ovs-vsctl set port s11-eth2 tag=60')   # ihf7ps1
         s11.cmd('ovs-vsctl set port s11-eth3 tag=70')   # ihf7mr1
-        s11.cmd('ovs-vsctl set port s11-eth4 tag=130')  # ihf1sr2
 
         # s12
         s12.cmd('ovs-vsctl set port s12-eth1 trunks=100,120')
@@ -646,17 +655,21 @@ class Illinois:
         net.get('ihf6voip1').setDefaultRoute('via 10.10.120.1')
         net.get('ihf7voip1').setDefaultRoute('via 10.10.120.1')
 
-        # VLAN 130 - Servers
-        net.get('ihf1sr1').setDefaultRoute('via 10.10.130.254')
-        net.get('ihf1sr2').setDefaultRoute('via 10.10.130.254')
+        # ── Servers ───────────────────────────────────────────────────
+        ihf1dhcp1 = net.get('ihf1dhcp1')
+        ihf1web1  = net.get('ihf1web1')
+        ihf1ftp1  = net.get('ihf1ftp1')
 
-        # ── Server host ───────────────────────────────────────────────
-        ihf1sr1 = net.get('ihf1sr1')
-        ihf1sr2 = net.get('ihf1sr2')
+        ihf1dhcp1.cmd(f'rm -f {SITE_DIR}/ILL_dhcp.pid {SITE_DIR}/ILL_dhcp.leases {SITE_DIR}/ILL_dhcp.log')
+        ihf1dhcp1.cmd(f'dnsmasq --conf-file={SITE_DIR}/ILL_dhcp.conf --addn-hosts={SITE_DIR}/records.txt --pid-file={SITE_DIR}/ILL_dhcp.pid --dhcp-leasefile={SITE_DIR}/ILL_dhcp.leases --log-dhcp --log-facility={SITE_DIR}/ILL_dhcp.log &')
+        s1.cmd('pkill dhcrelay 2>/dev/null')
+        s1.cmd('dhcrelay -4 -i s1.v50 -i s1.v110 10.10.130.40 &')
 
-        ihf1sr1.setDefaultRoute('via 10.10.130.254')
-        ihf1sr2.setDefaultRoute('via 10.10.130.254')
+        ihf1web1.cmd(f'python3 -m http.server 80 --directory {SITE_DIR}/web &')
 
+        ihf1ftp1.cmd(f'cd {SITE_DIR}/ftp && python3 -m pyftpdlib -p 21 -w -u admin -P secret123 &')
+
+        s1.cmd(f'sed -i "/agco.illinois/d" /etc/hosts && cat {SITE_DIR}/records.txt >> /etc/hosts')
 
         print("Illinois config applied successfully!")
 
@@ -667,6 +680,10 @@ def run():
     site.build(net)
     net.start()
     site.config(net)
+    CLI(net)
+    net.get('s1').cmd('pkill dhcrelay 2>/dev/null')
+    net.get('s1').cmd('sed -i "/agco.illinois/d" /etc/hosts')
+    net.stop()
 
 
 if __name__ == '__main__':

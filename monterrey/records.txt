@@ -1,0 +1,3 @@
+10.20.130.2    dns.agco.monterrey
+10.20.130.3    web.agco.monterrey
+10.20.130.4    ftp.agco.monterrey
