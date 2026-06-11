@@ -1,0 +1,109 @@
+Jun 10 21:06:55 dnsmasq[25571]: started, version 2.90 cachesize 150
+Jun 10 21:06:55 dnsmasq[25571]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 10 21:06:55 dnsmasq-dhcp[25571]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 10 21:06:55 dnsmasq-dhcp[25571]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 10 21:06:55 dnsmasq[25571]: reading /etc/resolv.conf
+Jun 10 21:06:55 dnsmasq[25571]: using nameserver 127.0.0.53#53
+Jun 10 21:06:55 dnsmasq[25571]: read /etc/hosts - 9 names
+Jun 10 21:35:30 dnsmasq[29547]: started, version 2.90 cachesize 150
+Jun 10 21:35:30 dnsmasq[29547]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 10 21:35:30 dnsmasq-dhcp[29547]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 10 21:35:30 dnsmasq-dhcp[29547]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 10 21:35:30 dnsmasq[29547]: reading /etc/resolv.conf
+Jun 10 21:35:30 dnsmasq[29547]: using nameserver 127.0.0.53#53
+Jun 10 21:35:30 dnsmasq[29547]: read /etc/hosts - 9 names
+Jun 10 21:46:30 dnsmasq[31766]: started, version 2.90 cachesize 150
+Jun 10 21:46:30 dnsmasq[31766]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 10 21:46:30 dnsmasq-dhcp[31766]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 10 21:46:30 dnsmasq-dhcp[31766]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 10 21:46:30 dnsmasq[31766]: reading /etc/resolv.conf
+Jun 10 21:46:30 dnsmasq[31766]: using nameserver 127.0.0.53#53
+Jun 10 21:46:30 dnsmasq[31766]: read /etc/hosts - 9 names
+Jun 10 21:53:34 dnsmasq[33740]: started, version 2.90 cachesize 150
+Jun 10 21:53:34 dnsmasq[33740]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 10 21:53:34 dnsmasq-dhcp[33740]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 10 21:53:34 dnsmasq-dhcp[33740]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 10 21:53:34 dnsmasq[33740]: reading /etc/resolv.conf
+Jun 10 21:53:34 dnsmasq[33740]: using nameserver 127.0.0.53#53
+Jun 10 21:53:34 dnsmasq[33740]: read /etc/hosts - 9 names
+Jun 10 22:01:14 dnsmasq[35739]: started, version 2.90 cachesize 150
+Jun 10 22:01:14 dnsmasq[35739]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 10 22:01:14 dnsmasq-dhcp[35739]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 10 22:01:14 dnsmasq-dhcp[35739]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 10 22:01:14 dnsmasq[35739]: reading /etc/resolv.conf
+Jun 10 22:01:14 dnsmasq[35739]: using nameserver 127.0.0.53#53
+Jun 10 22:01:14 dnsmasq[35739]: read /etc/hosts - 9 names
+Jun 10 22:12:05 dnsmasq[38746]: started, version 2.90 cachesize 150
+Jun 10 22:12:05 dnsmasq[38746]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 10 22:12:05 dnsmasq-dhcp[38746]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 10 22:12:05 dnsmasq-dhcp[38746]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 10 22:12:05 dnsmasq[38746]: reading /etc/resolv.conf
+Jun 10 22:12:05 dnsmasq[38746]: using nameserver 127.0.0.53#53
+Jun 10 22:12:05 dnsmasq[38746]: read /etc/hosts - 9 names
+Jun 10 22:20:05 dnsmasq[40609]: started, version 2.90 cachesize 150
+Jun 10 22:20:05 dnsmasq[40609]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 10 22:20:05 dnsmasq-dhcp[40609]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 10 22:20:05 dnsmasq-dhcp[40609]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 10 22:20:05 dnsmasq[40609]: reading /etc/resolv.conf
+Jun 10 22:20:05 dnsmasq[40609]: using nameserver 127.0.0.53#53
+Jun 10 22:20:05 dnsmasq[40609]: read /etc/hosts - 9 names
+Jun 10 22:33:56 dnsmasq[42936]: started, version 2.90 cachesize 150
+Jun 10 22:33:56 dnsmasq[42936]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 10 22:33:56 dnsmasq-dhcp[42936]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 10 22:33:56 dnsmasq-dhcp[42936]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 10 22:33:56 dnsmasq[42936]: reading /etc/resolv.conf
+Jun 10 22:33:56 dnsmasq[42936]: using nameserver 127.0.0.53#53
+Jun 10 22:33:56 dnsmasq[42936]: read /etc/hosts - 9 names
+Jun 10 22:57:58 dnsmasq[45950]: started, version 2.90 cachesize 150
+Jun 10 22:57:58 dnsmasq[45950]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 10 22:57:58 dnsmasq-dhcp[45950]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 10 22:57:58 dnsmasq-dhcp[45950]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 10 22:57:58 dnsmasq[45950]: reading /etc/resolv.conf
+Jun 10 22:57:58 dnsmasq[45950]: using nameserver 127.0.0.53#53
+Jun 10 22:57:58 dnsmasq[45950]: read /etc/hosts - 9 names
+Jun 10 23:01:35 dnsmasq[47661]: started, version 2.90 cachesize 150
+Jun 10 23:01:35 dnsmasq[47661]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth cryptohash DNSSEC loop-detect inotify dumpfile
+Jun 10 23:01:35 dnsmasq-dhcp[47661]: DHCP, IP range 10.30.50.5 -- 10.30.50.15, lease time 12h
+Jun 10 23:01:35 dnsmasq-dhcp[47661]: DHCP, IP range 10.30.20.50 -- 10.30.20.120, lease time 12h
+Jun 10 23:01:35 dnsmasq[47661]: reading /etc/resolv.conf
+Jun 10 23:01:35 dnsmasq[47661]: using nameserver 127.0.0.53#53
+Jun 10 23:01:35 dnsmasq[47661]: read /etc/hosts - 9 names
+Jun 10 23:07:34 dnsmasq-dhcp[47661]: 3096937785 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 10 23:07:34 dnsmasq-dhcp[47661]: 3096937785 client provides name: JorgeNavarro
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 DHCPDISCOVER(hSALdhcp1-eth0) 00:00:00:00:00:0b 
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 tags: vlan50, hSALdhcp1-eth0
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 DHCPOFFER(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 requested options: 15:domain-name, 6:dns-server, 119:domain-search, 
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 requested options: 12:hostname, 44:netbios-ns, 47:netbios-scope, 
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 requested options: 26:mtu, 121:classless-static-route, 42:ntp-server
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 next server: 10.30.130.40
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  1 option: 53 message-type  2
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 51 lease-time  12h
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 58 T1  6h
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 59 T2  10h30m
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option:  6 dns-server  8.8.8.8
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option:  3 router  10.30.50.1
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 available DHCP range: 10.30.50.5 -- 10.30.50.15
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 client provides name: JorgeNavarro
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 DHCPREQUEST(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b 
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 tags: vlan50, hSALdhcp1-eth0
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 DHCPACK(hSALdhcp1-eth0) 10.30.50.5 00:00:00:00:00:0b JorgeNavarro
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 requested options: 1:netmask, 28:broadcast, 2:time-offset, 3:router, 
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 requested options: 15:domain-name, 6:dns-server, 119:domain-search, 
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 requested options: 12:hostname, 44:netbios-ns, 47:netbios-scope, 
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 requested options: 26:mtu, 121:classless-static-route, 42:ntp-server
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 next server: 10.30.130.40
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  1 option: 53 message-type  5
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 54 server-identifier  10.30.130.40
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 51 lease-time  12h
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 58 T1  6h
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 59 T2  10h30m
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option:  1 netmask  255.255.255.224
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option: 28 broadcast  10.30.50.31
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size: 12 option: 12 hostname  JorgeNavarro
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option:  6 dns-server  8.8.8.8
+Jun 10 23:07:37 dnsmasq-dhcp[47661]: 3096937785 sent size:  4 option:  3 router  10.30.50.1

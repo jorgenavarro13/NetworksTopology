@@ -1,2 +1,2 @@
-10.30.130.1     dns.agco.saltillo
-10.30.130.1     web.agco.saltillo
+10.30.130.10     dns.agco.saltillo
+10.30.130.20    web.agco.saltillo
